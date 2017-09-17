@@ -1,0 +1,92 @@
+body {
+  background-color: inherit;
+}
+@media (min-width: 768px) {
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f2f2f2;
+  }
+}
+h1 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.formbox {
+  background-color: #ffffff;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  border-radius: 3px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .formbox {
+    width: 550px;
+    padding: 20px 40px;
+    box-shadow: 1px 1px 1px 1px rgba(100, 100, 100, 0.2);
+    -moz-box-shadow: 1px 1px 1px 1px rgba(100, 100, 100, 0.2);
+    -webkit-box-shadow: 1px 1px 1px 1px rgba(100, 100, 100, 0.2);
+    -o-box-shadow: 1px 1px 1px 1px rgba(100, 100, 100, 0.2);
+    margin-top: 40px;
+  }
+}
+
+.input_box {
+  width: 100%;
+  height: auto;
+  margin: 5px auto;
+  background-color: #dedede;
+  padding: 10px 10px;
+  color: rgb(60, 60, 60);
+  border: none;
+}
+
+.login_text {
+  font-size: 15px;
+  display: block;
+  margin-bottom: 80px;
+  font-weight: 400;
+  margin-top: 20px;
+  color: #333333;
+}
+
+button {
+  width: 100%;
+  height: auto;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  border: none;
+  background-color: #8CE2D0;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px 10px;
+}
+
+.btn_signup {
+  display: inline-block;
+  width: 140px;
+  height: auto;
+  margin-bottom: 30px;
+  border: none;
+  background-color: #8CE2D0;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+  padding: 7px 0;
+}
+.btn_signup:hover{
+  text-decoration: none;
+  color: black;
+}
+
+img.logo_img{
+  width: 120px;
+}
+
+.top_nav{
+  background-color: #dedede;
+  height: 50px;
+  vertical-align: middle;
+}
