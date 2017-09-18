@@ -20,7 +20,7 @@ function logInReducer(state=initialState, action){
       return Object.assign({}, state, {
         isLoggingIn: false,
         isLoggedIn: true,
-      })
+      });
     }
 
     default:

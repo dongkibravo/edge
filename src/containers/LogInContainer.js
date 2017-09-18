@@ -61,7 +61,7 @@ class LogIn extends React.Component{
           </Col>
         </Row>
       </Grid>
-    )
+    );
   }
 }
 
@@ -73,7 +73,7 @@ LogIn.propTypes = {
 const mapStateToProps = (state) => {
   return{
     user: state.jwtToken,
-  }
+  };
 };
 
 
