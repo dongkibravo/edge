@@ -4,6 +4,23 @@ import * as d3 from 'd3';
 const tau = Math.PI *2;
 
 class StatusChart extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			completedCount: 0,
+			totalCount: 0,
+			ratio: 0.0
+		};
+	}
+
+	componentWillMount(){
+		const {completedCount, totalCount} = this.props;
+		this.setState({
+			completedCount: completedCount,
+			totalCount: totalCount,
+			ratio: completedCount/totalCount
+		});
+	}
 
 	componentDidMount(){
 		const context = this.setContext();
@@ -20,7 +37,7 @@ class StatusChart extends React.Component{
 
 	setForeground(context){
 		return context.append('path')
-			.datum({ endAngle: tau * 0.66})
+			.datum({ endAngle: tau * this.state.ratio})
 			.style('fill','#84b3f1')
 			.attr('d', this.arc());
 	}
@@ -41,9 +58,12 @@ class StatusChart extends React.Component{
       .attr('transform', `translate(90, 90)`);
 
 			svg.append("text")
-			.attr("dy", "0.35em")
+			.attr("dy", "0.36em")
 			.attr("text-anchor", "middle")
-			.text('asdf');
+			.attr("font-weight", 700)
+			.attr("fill", "#65a0ee")
+			.attr("font-size", "30px")
+			.text(this.state.completedCount+' of '+this.state.totalCount);
 		return svg;
 	}
 

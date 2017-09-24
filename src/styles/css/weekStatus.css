@@ -2,14 +2,18 @@ div.line{
   width: 70px;
   display: inline-block;
   position: relative;
-  top: -100px;
+  top: -90px;
   border: 1px solid #e6e6e6;
 }
 
-div.line.complete{
+div.line.complete, div.line.ongoing{
   border: 1px solid #84b3f1;
 }
-
+.form-group{
+  display: inline-block;
+  position: relative;
+  top: -40px;
+}
 .form-group>img{
   display: block;
 }
@@ -22,6 +26,7 @@ div.line.complete{
   font-weight: 400;
   font-size:14px;
   color:#333;
+  display: block;
 }
 
 .mini_circle{
@@ -31,4 +36,8 @@ div.line.complete{
 
 .mini_circle.ongoing{
   border: 2px solid #84b3f1;
+}
+
+.day_part{
+  display:inline-block;
 }

@@ -1,15 +1,11 @@
-import React from 'react';
-import '../styles/css/dashboard.css';
-import WeekTable from '../components/WeekTable';
-
-const weeks = [
+[
   {
     'week_num': 1,
     'week_title': 'Airport',
-    'days':[
+    'status':[
       {
         'day': 1,
-        'status': 'complete'
+        'status': 'finished'
       },
       {
         'day': 2,
@@ -28,7 +24,7 @@ const weeks = [
   {
     'week_num': 2,
     'week_title': 'Airplane',
-    'days':[
+    'status':[
       {
         'day': 1,
         'status': 'ongoing'
@@ -50,7 +46,7 @@ const weeks = [
   {
     'week_num': 3,
     'week_title': 'Airdodododododo',
-    'days':[
+    'status':[
       {
         'day': 1,
         'status': 'locked'
@@ -69,15 +65,4 @@ const weeks = [
       }
     ]
   }
-];
-
-
-class Dashboard extends React.Component{
-  render(){
-    return(
-      <WeekTable weeks={weeks} />
-    );
-  }
-}
-
-export default Dashboard;
+]
