@@ -1,24 +1,31 @@
 import React from 'react';
-import {BrowserRouter as Router, Route,
-  Switch } from 'react-router-dom';
-
-import {Root} from './containers/Root';
-import Dashboard from './containers/Dashboard';
-import Test from './containers/Test';
+import {connect} from 'react-redux';
 
 class App extends React.Component{
-  render(){
-    return(
-      <Router>
-        <Root>
-          <Switch>
-            <Route exact path="/" component={Dashboard} />
-            <Route path="/soso" component={Test} />
-          </Switch>
-        </Root>
-      </Router>
-    );
+
+  componentDidUpdate(prevProps){
+    const { dispatch, redirectUrl } = this.props;
+    const isLoggingIn = !prevProps.isLoggedIn && this.props.isLoggedIn;
+    const isLoggingOut = prevProps.isLoggedIn && !this.props.isLoggedIn;
+
+    if (isLoggingIn){
+      // dispatch(navigatTo(redirectUrl));
+    } else if (isLoggingOut){
+      // Logging out action
+    }
   }
+
+  render(){
+    return this.props.children;
+  }
+
 }
 
-export default App;
+function mapStateToProps(state){
+  return{
+    isLoggedIn: state.isLoggedIn,
+    redirectUrl: state.redirectUrl,
+  };
+}
+
+export default connect(mapStateToProps)(App);

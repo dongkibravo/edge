@@ -1,0 +1,34 @@
+div.line{
+  width: 70px;
+  display: inline-block;
+  position: relative;
+  top: -100px;
+  border: 1px solid #e6e6e6;
+}
+
+div.line.complete{
+  border: 1px solid #84b3f1;
+}
+
+.form-group>img{
+  display: block;
+}
+
+.form-group>label{
+  top:20px;
+  width:100%;
+  position:relative;
+  text-align: center;
+  font-weight: 400;
+  font-size:14px;
+  color:#333;
+}
+
+.mini_circle{
+ width:80px;
+ height:80px;
+}
+
+.mini_circle.ongoing{
+  border: 2px solid #84b3f1;
+}

@@ -1,0 +1,19 @@
+.top_nav {
+  background-color: #ffffff;
+  padding: 0 30px;
+}
+
+.nav_header {
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.nav_header>img{
+  width: 170px;
+  margin: 17px 0;
+  padding-left: 12px;
+}
+
+.login_content{
+  padding-top: 110px;
+}

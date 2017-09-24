@@ -1,0 +1,99 @@
+[
+  {
+    'week': 1,
+    'week_title': 'Airport',
+    'daily_contents':[
+      {
+        'day':1,
+        'contents':[
+          {
+            'type': 'Dialogue Practice',
+            'title': '1. Asking for help',
+            'get': 'Dialogue',
+            'data': [
+              {
+                'user_eng': 'Excuse me, where is the baggage claim area?',
+                'user_jp': '야 가방 어디서 찾어',
+                'musio_eng': 'Which flight were you on',
+                'musio_jp': '뭘 그런걸 물어바...'
+              },
+              {
+                'user_eng': 'I'm twenty three',
+                'user_jp': '아이유 짱!',
+                'musio_eng': 'what the fuck man',
+                'musio_jp': '그래서 뭐'
+              }
+              {
+                'user_eng': 'AH oh qu mu itus',
+                'user_jp': '아 오 부 무 이수',
+                'musio_eng': 'yuhbf qwerud abxc',
+                'musio_jp': '휴우르프 랴몽호 반오',
+              }
+            ]
+          }
+          {
+            'type': 'Pattern Practice',
+            'get': 'Pattern',
+            'data': [
+              {
+                'pattern_eng': 'Where is ~',
+                'pattern_jp': '~어디여?'
+              },
+              {
+                'pattern_eng': 'I have been waiting for ~',
+                'pattern_jp': '~ 쭉 기다렸잔슈'
+              },
+              {
+                'pattern_eng': 'I bought ~',
+                'pattern_jp': '나 ~ 질렀당'
+              }
+            ]
+          }
+        ]
+      }
+      {
+        'day':2,
+        'contents':[
+          {
+            'type': 'Vocabulary Practice',
+            'get': 'Vocabulary',
+            'data': [
+              {
+                'word': 'guess',
+                'definition': '추측하다, 생각하다'
+              },
+              {
+                'word': 'to',
+                'definition': '~쪽으로, ~까지'
+              },
+              {
+                'word': 'what',
+                'definition': '무엇, 무엇이, 무슨'
+              },
+              {
+                'word': 'welcome',
+                'definition': '환영, 환영하다',
+              },
+              {
+                'word': 'lesson',
+                'definition': '과, 수업, 교훈'
+              },
+              {
+                'word': 'internet'
+                'definition': '인터넷'
+              },
+              {
+                'word': 'language'
+                'definition': '언어'
+              },
+              {
+                'word': 'culture'
+                'definition': '듣다, 귀를 기울이다'
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

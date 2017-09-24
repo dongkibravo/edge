@@ -1,26 +1,31 @@
-export default function reducer(state={
-                                  jwtToken: null,
-                                  error: null,
-                                }, action) {
+const initialState ={
+  jwtToken: null,
+  error: null,
+  redirectUrl: null,
+};
 
-  switch (action.type) {
-    case "LOGIN_FULFILLED": {
-      console.log(action.payload);
-      return {...state, jwtToken: 'JWT '+action.payload.token}
+function authReducer(state=initialState, action){
+  switch (action.type){
+    case "LOGIN_FULFILLED":{
+      return Object.assign({}, state, {
+        jwtToken: 'Bearer ' + action.payload
+      });
     }
 
     case "LOGIN_REJECTED":{
-      console.log(action.payload);
-      return {...state, err: action.payload.message}
+      return Object.assign({}, state, {
+        error: action.payload
+      });
     }
 
-    case "LOGOUT": {
-      console.log('from reducer, logging out');
-      return { jwtToken: null}
+    case "REDIRECT_URL":{
+      return Object.assign({}, state, {
+        redirectUrl: action.payload
+      });
     }
-
-    default: {
-      return {...state}
-    }
+    default:
+      return state;
   }
 }
+
+export default authReducer;

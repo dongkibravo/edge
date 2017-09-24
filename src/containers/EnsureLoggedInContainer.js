@@ -2,18 +2,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import { setRedirectUrl } from '../actions/AuthAction';
 import history from '../history';
 
 class EnsureLoggedInContainer extends React.Component{
+  constructor(...props){
+    super(...props);
+  }
+
 
   componentDidMount(){
-    const { dispatch, currentUrl, isLoggedIn, history } = this.props;
+    const { dispatch, currentUrl, isLoggedIn } = this.props;
+    console.log("component did mount");
+
     if(!isLoggedIn){
       console.log("checkpoint");
       dispatch(setRedirectUrl(currentUrl));
-      this.props.router.push('/login');
+      history.push('/login');
     }
   }
 
@@ -23,16 +28,19 @@ class EnsureLoggedInContainer extends React.Component{
     const{ isLoggedIn } = this.props;
     if (isLoggedIn){
       return this.props.children;
+    } else{
+      return <div>DID NOT WORK</div>;
     }
-    return <div> hi</div>;
   }
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state, props){
   return{
     isLoggedIn: state.logIn.isLoggedIn,
     currentUrl: window.location.pathname
+    // currentUrl: props.location.pathname
   };
 }
 
-export default withRouter(connect(mapStateToProps)(EnsureLoggedInContainer));
+// export default withRouter(connect(mapStateToProps)(EnsureLoggedInContainer));
+export default connect(mapStateToProps)(EnsureLoggedInContainer);
