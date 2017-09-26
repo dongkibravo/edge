@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../components/NavBar.console.js';
-import { Grid, Col, Row} from 'react-bootstrap';
+import { Grid } from 'react-bootstrap';
 
 export const Root = (props) => {
   return(

@@ -7,6 +7,7 @@ import {Root} from './Root';
 import Dashboard from './Dashboard';
 import Pro from './ProContainer';
 import Dashboard2 from './Dashboard2';
+import DayContainer from './DayContainer';
 
 class RootRouterWrapper extends React.Component{
 
@@ -33,7 +34,7 @@ class RootRouterWrapper extends React.Component{
               <Root>
                 <Switch>
                   <Route path="/dashboard" component={Dashboard} />
-                  <Route path="/dashboard2" component={Dashboard2} />
+                  // <Route path="/dashboard/:week/:day" component={Dashboard2} />
                   <Route path="/pro" component={Pro} />
                 </Switch>
               </Root>

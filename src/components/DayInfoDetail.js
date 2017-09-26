@@ -5,30 +5,33 @@ import Dialogue from './Dialogue';
 import Pattern from './Pattern';
 import Vocabulary from './Vocabulary';
 
-
-const DayInfoDetail = (props)=>{
-
-  let detail_type=null;
-  if(props.get ==="Dialogue"){
-    detail_type=<Dialogue title={props.title}/>;
-  }else if (props.get==="Pattern") {
-    detail_type=<Pattern title={props.title}/>;
-  }else if (props.get==="Vocabulary"){
-    detail_type=<Vocabulary />;
+function detailType(type, set){
+  console.log(set);
+  let set_type = null;
+  if(type === "Dialogue Practice"){
+    set_type = <Dialogue dataSet={set} />
+  }else if (type === "Pattern Practice"){
+    set_type = <Pattern dataSet={set} />
   }
+  console.log(set_type);
+  return set_type;
+}
 
+const DayInfoDetail = ({content})=>{
   return(
     <Row className="detail_table_background">
       <Col xs={12} md={10} mdOffset={1}>
         <div className="detail_table">
           <Row className="detail_title">
             <Col xs={12}>
-              <span>{props.type}</span>
+              <span>{content.type}</span>
             </Col>
           </Row>
-          <div className="detail_content">
-            {detail_type}
-          </div>
+          {content.data.map((data, index)=>(
+            <div className="detail_content" key={index}>
+              {detailType(content.type, data)}
+            </div>
+          ))}
         </div>
       </Col>
     </Row>

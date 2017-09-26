@@ -1,6 +1,7 @@
 import React from 'react';
-import { Row, Col, Grid } from 'react-bootstrap';
+import { Row, Col, Grid, Image } from 'react-bootstrap';
 import WeekStatus from './WeekStatus';
+import circle from '../static/circle.svg';
 
 const WeekTable = (props) =>{
   return(
@@ -12,14 +13,14 @@ const WeekTable = (props) =>{
                 <Row>
                   <Col xs={12}>
                     <div className="week_title">
-                      <span>Week {week.week_num}: {week.week_title}</span>
+                      <span>Week {week.week_num}: {props.titles[index]} </span>
                     </div>
                   </Col>
                 </Row>
                 <Row>
                   <Col xs={12}>
                     <div className="progress_status">
-                      <WeekStatus days={week.days} />
+                      <WeekStatus days={week.days} week={week.week_num}/>
                     </div>
                   </Col>
                 </Row>
@@ -30,6 +31,9 @@ const WeekTable = (props) =>{
               </Row>
             </div>
           ))}
+        <div style={{'text-align':'center'}} >
+          <Image className="end_circle text-center" style={{width:'35px'}} src={circle} circle />
+        </div>
       </Row>
     </Grid>
   );

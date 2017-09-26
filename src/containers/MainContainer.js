@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Grid, Image, Row, Col, Button } from 'react-bootstrap';
+import { Grid, Image, Row, Col } from 'react-bootstrap';
 import '../styles/css/NavBar1.css';
 import '../styles/css/mainpage.css';
 import Logo from '../static/edgelogo.png';
@@ -16,6 +16,8 @@ class Main extends React.Component{
     const olympic_background = {
       backgroundImage: 'url('+olympics+')'
     };
+
+
     return(
       <Grid className="main_continaer">
         <div className="top_nav">
@@ -37,7 +39,6 @@ class Main extends React.Component{
                     <Link className="btn btn-default" to={'/dashboard'}>Let's Start</Link>
                   </Col>
                 </Row>
-
               </div>
             </Col>
           </Row>

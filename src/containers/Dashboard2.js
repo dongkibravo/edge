@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Grid, Image } from 'react-bootstrap';
+import { Grid } from 'react-bootstrap';
 import '../styles/css/dashboard2.css';
 import DayInfoTable from '../components/DayInfoTable';
 

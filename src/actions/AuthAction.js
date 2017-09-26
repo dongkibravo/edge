@@ -1,8 +1,8 @@
-import axios from "axios";
-import { push } from 'react-router-redux';
+// import axios from "axios";
+// import { push } from 'react-router-redux';
 
 const client_key = "64JXMJSDr30ZjGCOETjP7SH2F4zLmYR2orOnXh3b7RrKuC9w76fgH3pes25CB5ISxf6j23GXZq4Dq6QDsHNQXcYYLFCgJ10vtQF2IAPCZX4OY85VZ2JikYtr2XQJ2fMA";
-const url = "https://user.themusio.com/auth/signin/";
+// const url = "https://user.themusio.com/auth/signin/";
 
 export function login(email, password){
   let formData = new FormData();

@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 import {Row, Col} from 'react-bootstrap';
 import DayInfoDetail from './DayInfoDetail';
 
-
-
+// Dialogue, Pattern Quiz result 표시하는 부분 question
 
 const DayInfoTable = (props)=>{
-
-
+  console.log("day info table!!!!!!");
+  console.log(props);
 
   return(
     <Row>
@@ -18,7 +17,7 @@ const DayInfoTable = (props)=>{
             <div className="title_padding">
               <div className="title_text">
                 <div className="week">
-                  <span>Week 1: Airport</span>
+                  <span>Week 1: Airport {props.title}</span>
                 </div>
                 <div className="day">
                   <span>Day 1</span>
@@ -30,12 +29,9 @@ const DayInfoTable = (props)=>{
             </div>
           </Col>
         </Row>
-        <DayInfoDetail type="Diagloue Practice"
-          title="1. Asking for help" get="Dialogue" data="11"/>
-        <DayInfoDetail type="Pattern Practice"
-          title="Key Phrases" get="Pattern" data="22" />
-        <DayInfoDetail type="Vocabulary Practice"
-          get="Vocabulary" data="44" />
+        {props.dailyData.map((dailyContent, index)=>(
+          <DayInfoDetail content={dailyContent} />
+        ))}
       </Col>
     </Row>
   );
