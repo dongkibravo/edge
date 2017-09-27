@@ -4,6 +4,9 @@ import {Row, Col} from 'react-bootstrap';
 import Dialogue from './Dialogue';
 import Pattern from './Pattern';
 import Vocabulary from './Vocabulary';
+import VocaQuiz from './VocaQuiz';
+import PatternQuiz from './PatternQuiz';
+import DialogueQuiz from './DialogueQuiz';
 
 function detailType(type, set){
   console.log(set);
@@ -12,8 +15,15 @@ function detailType(type, set){
     set_type = <Dialogue dataSet={set} />
   }else if (type === "Pattern Practice"){
     set_type = <Pattern dataSet={set} />
+  }else if (type === "Vocabulary Practice"){
+    set_type = <Vocabulary dataSet={set} />
+  }else if (type === "Vocabulary Quiz"){
+    set_type = <VocaQuiz dataSet={set} />
+  }else if (type === "Pattern Quiz"){
+    set_type = <PatternQuiz dataSet={set} />
+  }else if (type === "Dialogue Quiz"){
+    set_type = <DialogueQuiz dataSet={set} />
   }
-  console.log(set_type);
   return set_type;
 }
 

@@ -4,20 +4,24 @@ const weeklyStatus =  [
 		'week_num': 1,
 		'days':[
 			{
-				'day':1,
-				'status':'complete'
+				'day'				:		1,
+				'materials'	:		['Dialogue Practice','Pattern Practice'],
+				'status'		:		'complete'
 			},
 			{
-				'day':2,
-				'status':'ongoing'
+				'day'				:		2,
+				'materials'	:		['Pattern Quiz','Vocabulary Practice'],
+				'status'		:		'ongoing'
 			},
 			{
-				'day':3,
-				'status':'locked'
+				'day'				:		3,
+				'materials'	:		['Vocabulary Quiz','Dialogue Quiz'],
+				'status'		:		'locked'
 			},
 			{
-				'day':4,
-				'status':'locked'
+				'day'				:		4,
+				'materials' : 	['NOTHING'],
+				'status'		:		'locked'
 			}
 		]
 	},
@@ -25,24 +29,29 @@ const weeklyStatus =  [
 		'week_num': 2,
 		'days':[
 			{
-				'day':1,
-				'status':'ongoing'
+				'day'				:		1,
+				'materials'	:		['Dialogue Practice','Pattern Practice'],
+				'status'		:		'ongoing'
 			},
 			{
-				'day':2,
-				'status':'locked'
+				'day'				:		2,
+				'materials'	:		['Pattern Quiz','Vocabulary Practice'],
+				'status'		:		'locked'
 			},
 			{
-				'day':3,
-				'status':'locked'
+				'day'				:		3,
+				'materials'	:		['Vocabulary Quiz','Dialogue Quiz'],
+				'status'		:		'locked'
 			},
 			{
-				'day':4,
-				'status':'pro_locked'
+				'day'				:		4,
+				'materials' : 	['NOTHING'],
+				'status'		:		'locked'
 			}
 		]
 	}
 ];
+
 const dailyData = [
   {
     'type'  : 'Dialogue Practice',
@@ -144,6 +153,40 @@ const dailyData = [
 	}
 ];
 
+const dailyData2 = [
+	{
+		'type'	: 'Vocabulary Quiz',
+		'date'	: '2017-09-27 18:30:00',
+		'log'	:
+		[{
+			'question'	:	'사과',
+			'answer'	:	'apple',
+			'user'		: 	'apple',
+			'result'	:	true
+		},{
+			'question'	:	'에반',
+			'answer'	:	'evan',
+			'user'		:	'james',
+			'result'	:	false
+		},{
+			'question'	:	'에반',
+			'answer'	:	'evan',
+			'user'		:	'james',
+			'result'	:	false
+		},{
+			'question'	:	'에반',
+			'answer'	:	'evan',
+			'user'		:	'james',
+			'result'	:	false
+		},{
+			'question'	:	'에반',
+			'answer'	:	'evan',
+			'user'		:	'james',
+			'result'	:	false
+		}]
+	},
+];
+
 export function getWeeks(){
   return (dispatch, getState) => {
     const state = getState();
@@ -160,7 +203,16 @@ export function getDay(week, day){
     const state = getState();
     dispatch({
       type: "SEARCH_DAY_FULFILLED",
-      payload: dailyData
+      payload: dailyData2
     });
   };
+}
+
+export function getQuiz(week, day, type){
+	return (dispatch, getState) => {
+		dispatch({
+			type: "SEARCH_QUIZ_FULFILLED",
+			payload: quizData
+		});
+	};
 }
