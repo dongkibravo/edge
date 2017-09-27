@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../styles/css/QuizTable.css';
 import {connect} from 'react-redux';
 import { getDay } from '../actions/DashboardAction';
 import DayInfoTable from '../components/DayInfoTable';

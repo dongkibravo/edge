@@ -1,40 +1,8 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
 
-// VOCA QUIZ
-const voca_quiz_data = {
-	'type'	: 'Vocabulary Quiz',
-	'date'	: '2017-09-27 18:30:00',
-	'log'	:
-	[{
-		'question'		:	'사과',
-		'answer'			:	'apple',
-		'user_answer'	: 	'apple',
-		'result'			:	true
-	},{
-		'question'		:	'에반',
-		'answer'			:	'evan',
-		'user_answer'	:	'james',
-		'result'			:	false
-	},{
-		'question'		:	'에반',
-		'answer'			:	'evan',
-		'user_answer'	:	'james',
-		'result'			:	false
-	},{
-		'question'		:	'에반',
-		'answer'			:	'evan',
-		'user_answer'	:	'james',
-		'result'			:	false
-	},{
-		'question'		:	'에반',
-		'answer'			:	'evan',
-		'user_answer'	:	'james',
-		'result'			:	false
-	}]
-};
 
-const VocaQuiz = ({log}) => {
+const VocaQuiz = ({dataSet}) => {
   return(
     <Row>
       <Col xs={12}>
@@ -44,17 +12,17 @@ const VocaQuiz = ({log}) => {
               <table className="voca_quiz">
                 <thead>
                   <tr>
-                    <th>No.</th>
-                    <th>Voca</th>
-                    <th>My Answer</th>
-                    <th>正解(정답)</th>
-                    <th>O/X</th>
+                    <td>No.</td>
+                    <td>Voca</td>
+                    <td>My Answer</td>
+                    <td>正解(정답)</td>
+                    <td>O/X</td>
                   </tr>
                 </thead>
                 <tbody>
-                  {log.map((data, index)=>(
-                    <tr key={index}>
-                      <td>{index}</td>
+                  {dataSet.log.map((data, index)=>(
+                    <tr className={(((index+1)%2==0)?'even_line':'odd_line')} key={index}>
+                      <td>{index+1}</td>
 											<td>{data.question}</td>
 											<td>{data.user_answer}</td>
 											<td>{data.answer}</td>

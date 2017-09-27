@@ -1,81 +1,29 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
 
-const dialogue_quiz_data=
-{
-	'type'	:	'Dialogue Quiz',
-	'date'	: 	'2017-09-27',		// purpose to check if this quiz has been taken or not (for all three quiz)
- 	'data'	:
-  [{
-		'topic'	:	'asking for help',
-		'date'	:	'2017-09-27 20:00:00',
-		'log'		:
-		[{
-			'question'		:	'Welcome aboard',
-			'question_jp'	:	'こんにちは。',
-			'answer'		:	'Hi. Can you help me find my seat?',
-			'answer_jp'		:	'座席を探するのを手伝ってもらえますか?',
-			'user'			:	'Find my fucking seat',
-			'result'		:	false
-		},{
-			'question'		:	'Sure. May I see your boarding pass, please? Your seat is 32A and 32B. Take this aisle and go straight ahead.' ,
-			'question_jp'	:	'かしこまりました。搭乗券をを見せて頂けますか？ お客様の座席が32A,32Bでございます。 この通路から直進です。',
-			'answer'		:	'Thanks. can you help me with this bag?',
-			'answer_jp'		:	'ありがとうございます。ちょっと手伝ってもらえますか？',
-			'user'			:	'My FUCKING bag!!!!',
-			'result'		:	true
-		},{
-			'question'		:	'Sure. Would you like to put in the overhead compartment?',
-			'question_jp'	:	'はい。上の棚へ入れますか？',
-			'answer'		:	'Yes, please.',
-			'answer_jp'		:	'はい、お願いします。',
-			'user'			:	'fuck no.',
-			'result'		:	false
-		},{
-			'question'		:	'Here. Let me know if you need to take it out.' ,
-			'question_jp'	:	'はい、どうぞ。 もし引き出す必要がございましたら教えて下さい。',
-			'answer'		:	'Thank you so much?',
-			'answer_jp'		:	'ありがとうございます。',
-			'user'			:	'oh my dear fucking god',
-			'result'		:	true
-		}]
-	},{
-		'topic'	:	'changing seats',
-		'date'	:	'2017-09-28 20:00:00',
-		'log'		:
-		[{
-			'question'		:	'Welcome aboard',
-			'question_jp'	:	'こんにちは。',
-			'answer'		:	'Hi. Can you help me find my seat?',
-			'answer_jp'		:	'座席を探するのを手伝ってもらえますか?',
-			'user'			:	'Find my fucking seat',
-			'result'		:	false
-		},{
-			'question'		:	'Sure. May I see your boarding pass, please? Your seat is 32A and 32B. Take this aisle and go straight ahead.' ,
-			'question_jp'	:	'かしこまりました。搭乗券をを見せて頂けますか？ お客様の座席が32A,32Bでございます。 この通路から直進です。',
-			'answer'		:	'Thanks. can you help me with this bag?',
-			'answer_jp'		:	'ありがとうございます。ちょっと手伝ってもらえますか？',
-			'user'			:	'My FUCKING bag!!!!',
-			'result'		:	true
-		},{
-			'question'		:	'Sure. Would you like to put in the overhead compartment?',
-			'question_jp'	:	'はい。上の棚へ入れますか？',
-			'answer'		:	'Yes, please.',
-			'answer_jp'		:	'はい、お願いします。',
-			'user'			:	'fuck no.',
-			'result'		:	false
-		},{
-			'question'		:	'Here. Let me know if you need to take it out.' ,
-			'question_jp'	:	'はい、どうぞ。 もし引き出す必要がございましたら教えて下さい。',
-			'answer'		:	'Thank you so much?',
-			'answer_jp'		:	'ありがとうございます。',
-			'user'			:	'oh my dear fucking god',
-			'result'		:	true
-		}]
-	}]
-};
+const DialogueQuiz = ({dataSet}) => {
 
-const DialogueQuiz = ({quizData}) => {
+	let topic_and_log = [];
+	dataSet.log.map((dialogue_quiz, i)=>(
+		topic_and_log.push(
+			<tr className="dialogue_topic" key={"dialogue_quiz_topic_"+i}>
+				<td colSpan={5}>
+					Topic : {dialogue_quiz.topic}
+				</td>
+			</tr>),
+			dialogue_quiz.log.map((quiz_log, j)=>(
+				topic_and_log.push(
+					<tr className={(((j+1)%2==0)?'even_line':'odd_line')}
+						key={"dialogue_quiz_log_"+i+'_'+j}>
+						<td>{j+1}</td>
+						<td>{quiz_log.question}</td>
+						<td>{quiz_log.user_answer}</td>
+						<td>{quiz_log.answer}</td>
+						<td>{((quiz_log.result===true)?'O':'X')}</td>
+					</tr>)
+			))
+	))
+
   return(
     <Row>
       <Col xs={12}>
@@ -86,28 +34,14 @@ const DialogueQuiz = ({quizData}) => {
                 <thead>
                   <tr>
                     <th>No.</th>
-                    <th>Topic/Question</th>
+                    <th>Question</th>
                     <th>My Answer</th>
                     <th>正解(정답)</th>
                     <th>O/X</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {quizData.map((data, index)=>(
-                    <tr key={index}>
-                      <td> + </td>
-                      <td colSpan={4}>{data.topic} - {data.date}</td>
-                    </tr>
-                    {data.log.map((log, index2)=>(
-                      <tr key={index2}>
-                        <td>{index2}</td>
-                        <td>{log.question}</td>
-                        <td>{log.user_answer}</td>
-                        <td>{log.answer}</td>
-                        <td>{((log.result===true)?'O':'X')}</td>
-                      </tr>
-                    ))}
-                  ))}
+									{topic_and_log}
                 </tbody>
               </table>
             </Col>
@@ -118,4 +52,4 @@ const DialogueQuiz = ({quizData}) => {
   )
 };
 
-export defualt DialogueQuiz;
+export default DialogueQuiz;

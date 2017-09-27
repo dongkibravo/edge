@@ -1,0 +1,37 @@
+.detail_title .title_date{
+  font-weight: 300;
+}
+.quiz_table table{
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+  border: 1px solid #e6e6e6;
+}
+
+.quiz_table table thead{
+  background-color: #51bdd7;
+  color: #fff;
+}
+
+.quiz_table table tr{
+  border: 1px solid #e6e6e6;
+}
+
+.quiz_table table tbody{
+  background-color: #fff;
+}
+
+.quiz_table .odd_line{
+  background-color: #f2f2f2;
+}
+
+.quiz_table .pattern_title, .quiz_table .dialogue_topic{
+  text-align: left;
+  height:30px;
+}
+
+.quiz_table .pattern_title>td, .quiz_table .dialogue_topic>td{
+  padding-left: 4%;
+  font-weight: 500;
+  font-size: 18px;
+}

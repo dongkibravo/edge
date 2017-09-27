@@ -35,6 +35,7 @@ const DayInfoDetail = ({content})=>{
           <Row className="detail_title">
             <Col xs={12}>
               <span>{content.type}</span>
+              {content.date?(<span className="title_date">{' - '+content.date}</span>):null}
             </Col>
           </Row>
           {content.data.map((data, index)=>(

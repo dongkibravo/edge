@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Row, Col} from 'react-bootstrap';
 
 const Vocabulary = (props) =>{
@@ -43,8 +42,5 @@ const Vocabulary = (props) =>{
   );
 };
 
-Vocabulary.PropTypes={
-
-};
 
 export default Vocabulary;
