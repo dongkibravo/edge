@@ -15,14 +15,16 @@ class NavBar extends React.Component{
           <Row>
             <Col xs={2}>
               <div className="nav_brand">
-                <Image className="brand-img" src={edgeLogo}/>
+                <Link to="/home">
+                  <input className="brand-img" type="image" src={edgeLogo}/>
+                </Link>
               </div>
             </Col>
             <Col xs={4} xsOffset={1}>
               <div className="nav_menu">
-                <Button>Dashboard</Button>
+                <Link to="/dashboard" className="btn btn-default">Dashboard</Link>
                 <DropdownButton title="Pro" id="bg-nested-dropdown" noCaret>
-                  <MenuItem eventKey="1">AI</MenuItem>
+                  <MenuItem eventKey="1" href="/pro">AI</MenuItem>
                   <MenuItem eventKey="2">Tutor</MenuItem>
                   <MenuItem eventKey="3">Online-Eng</MenuItem>
                 </DropdownButton>
@@ -33,16 +35,16 @@ class NavBar extends React.Component{
                 <button className="btn-upgrade">Upgrade to Pro</button>
                 <div className="dropdown_section">
                   <div className="dropdown_contents">
-                    <DropdownButton noCaret title={<img src={hawaii_logo}></img>}>
+                    <DropdownButton id="contents_dropdown" noCaret title={<img src={hawaii_logo}></img>}>
                       <MenuItem disabled>학습 중</MenuItem>
                       <MenuItem eventKey="4"><Image src={hawaii_logo} /></MenuItem>
                       <MenuItem eventKey="5"><Image src={olympic_logo} /></MenuItem>
                     </DropdownButton>
                   </div>
                   <div className="dropdown_contents">
-                    <DropdownButton noCaret title={<img src={setting_icon}/>}>
+                    <DropdownButton id="setting_dropdown" noCaret title={<img src={setting_icon}/>}>
                       <MenuItem disabled>Dong Park</MenuItem>
-                      <MenuItem eventKey="6">My Profile</MenuItem>
+                      <MenuItem eventKey="6" href="/profile">My Profile</MenuItem>
                       <MenuItem eventKey="7">Help/Community</MenuItem>
                       <MenuItem divider />
                       <MenuItem eventKey="8">Log Out</MenuItem>

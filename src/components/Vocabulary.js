@@ -1,7 +1,7 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
 
-const Vocabulary = (props) =>{
+const Vocabulary = ({dataSet}) =>{
   return(
     <Row>
       <Col xs={12}>
@@ -16,22 +16,12 @@ const Vocabulary = (props) =>{
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Apple</td>
-                    <td>사과</td>
-                  </tr>
-                  <tr>
-                    <td>Tree</td>
-                    <td>나무</td>
-                  </tr>
-                  <tr>
-                    <td>Fan</td>
-                    <td>선풍기</td>
-                  </tr>
-                  <tr>
-                    <td>Airplane</td>
-                    <td>비행기</td>
-                  </tr>
+                  {dataSet.set.map((vocab, i)=>(
+                    <tr key={"voca_prac_"+i}>
+                      <td>{vocab.vocab_en}</td>
+                      <td>{vocab.vocab_jp}</td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </Col>

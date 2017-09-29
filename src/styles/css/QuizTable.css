@@ -13,6 +13,7 @@
   color: #fff;
 }
 
+
 .quiz_table table tr{
   border: 1px solid #e6e6e6;
 }
@@ -21,17 +22,73 @@
   background-color: #fff;
 }
 
-.quiz_table .odd_line{
+
+.quiz_table .title_1{
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.quiz_table .title_2{
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.quiz_table .even_line{
   background-color: #f2f2f2;
 }
 
 .quiz_table .pattern_title, .quiz_table .dialogue_topic{
   text-align: left;
   height:30px;
+  background-color: #dcf2f7;
+  padding: 15px 0;
 }
 
 .quiz_table .pattern_title>td, .quiz_table .dialogue_topic>td{
-  padding-left: 4%;
+  padding: 16px 40px;
   font-weight: 500;
   font-size: 18px;
+}
+
+.quiz_table .log_line>td{
+    padding: 11px 0;
+    font-size: 17px;
+    font-weight:400;
+}
+
+.quiz_table td.question, .quiz_table td.user_answer{
+  width: 40%;
+  text-align: left;
+}
+
+.quiz_table td.question{
+  padding-left: 15px;
+}
+
+.quiz_table td.user_answer{
+  padding-left: 35px;
+}
+
+.quiz_table td.answer{
+  text-align:left;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    font-size: 15px;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }

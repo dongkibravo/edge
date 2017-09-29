@@ -27,7 +27,7 @@ function detailType(type, set){
   return set_type;
 }
 
-const DayInfoDetail = ({content})=>{
+const DayInfoDetail = ({content})=> {
   return(
     <Row className="detail_table_background">
       <Col xs={12} md={10} mdOffset={1}>

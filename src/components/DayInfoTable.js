@@ -5,10 +5,7 @@ import DayInfoDetail from './DayInfoDetail';
 
 // Dialogue, Pattern Quiz result 표시하는 부분 question
 
-const DayInfoTable = (props)=>{
-  console.log("day info table!!!!!!");
-  console.log(props);
-
+const DayInfoTable = ({dailyData, titles, week, day})=>{
   return(
     <Row>
       <Col className="info_table" xs={12} md={10} mdOffset={1}>
@@ -17,10 +14,10 @@ const DayInfoTable = (props)=>{
             <div className="title_padding">
               <div className="title_text">
                 <div className="week">
-                  <span>Week 1: Airport {props.title}</span>
+                  <span>Week {week}: {titles[week-1]}</span>
                 </div>
                 <div className="day">
-                  <span>Day 1</span>
+                  <span>Day {day}</span>
                 </div>
               </div>
               <div className="musio_activation">
@@ -29,8 +26,8 @@ const DayInfoTable = (props)=>{
             </div>
           </Col>
         </Row>
-        {props.dailyData.map((dailyContent, index)=>(
-          <DayInfoDetail content={dailyContent} />
+        {dailyData.map((dailyContent, index)=>(
+          <DayInfoDetail key={index} content={dailyContent} />
         ))}
       </Col>
     </Row>

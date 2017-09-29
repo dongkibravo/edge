@@ -31,7 +31,7 @@ const WeekTable = (props) =>{
               </Row>
             </div>
           ))}
-        <div style={{'text-align':'center'}} >
+        <div className="text-center">
           <Image className="end_circle text-center" style={{width:'35px'}} src={circle} circle />
         </div>
       </Row>

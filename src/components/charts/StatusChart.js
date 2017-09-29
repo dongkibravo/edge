@@ -69,7 +69,7 @@ class StatusChart extends React.Component{
 
 	render(){
     const divStyle = {
-      width: '180px',
+      width: '174px',
       display: 'inline-block',
     };
 		return(

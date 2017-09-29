@@ -5,9 +5,10 @@ import { setRedirectUrl } from '../actions/AuthAction';
 import ContentCategory from './MainContainer';
 import {Root} from './Root';
 import Dashboard from './Dashboard';
-import Pro from './ProContainer';
+import Pro from './Pro.Container';
 import Dashboard2 from './Dashboard2';
 import DayContainer from './DayContainer';
+import Profile from '../components/Profile';
 
 class RootRouterWrapper extends React.Component{
 
@@ -34,8 +35,8 @@ class RootRouterWrapper extends React.Component{
               <Root>
                 <Switch>
                   <Route path="/dashboard" component={Dashboard} />
-                  // <Route path="/dashboard/:week/:day" component={Dashboard2} />
                   <Route path="/pro" component={Pro} />
+                  <Route path="/profile" component={Profile} />
                 </Switch>
               </Root>
             </Route>

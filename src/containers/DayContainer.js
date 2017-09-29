@@ -7,39 +7,28 @@ import DayInfoTable from '../components/DayInfoTable';
 
 class DayContainer extends React.Component{
 
-  constructor(...props){
-    console.log("in day container");
-    super(...props);
-    this.state={
-      dailyData: [],
-      title: ''
-    };
-  }
-
   componentWillMount(){
     console.log("Component Will Mount in Day");
   }
 
   componentDidMount(){
     console.log("Component Did Mount in day");
-
     const {day, week} = this.props.match.params;
     this.props.getDay(week, day);
-
   }
+
   // 이거 새로운 url을 그냥 쳐넣으면 어떻게 되지???
   componentWillReceiveProps(nextProps){
     console.log("Will Receive Props in Day");
     console.log(nextProps);
-    console.log("current props");
-    console.log(this.props);
-
   }
 
   render(){
-    console.log("day RENDER");
+    const {week, day} = this.props.match.params;
+
     return(
-      <DayInfoTable dailyData={this.props.dailyData} title={this.props.title} />
+      <DayInfoTable dailyData={this.props.dailyData} titles={this.props.titles}
+        week={week} day={day} />
     );
   }
 }
