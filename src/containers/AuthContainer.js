@@ -26,6 +26,10 @@ class RootRouterWrapper extends React.Component{
 
   render(){
     const { jwt } = this.props;
+    const match = this.props.match;
+
+    console.log("match");
+    console.log(match);
     if(jwt){
       return(
         <div id="RootRouterWrapper">
@@ -33,11 +37,9 @@ class RootRouterWrapper extends React.Component{
             <Route exact path="/home" component={ContentCategory} />
             <Route>
               <Root>
-                <Switch>
-                  <Route path="/dashboard" component={Dashboard} />
-                  <Route path="/pro" component={Pro} />
-                  <Route path="/profile" component={Profile} />
-                </Switch>
+                <Route path="/dashboard" component={Dashboard} />
+                <Route path="/pro" component={Pro} />
+                <Route path="/profile" component={Profile} />
               </Root>
             </Route>
           </Switch>

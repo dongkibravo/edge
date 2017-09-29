@@ -2,22 +2,11 @@ import React from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import '../styles/css/pro.notes.css';
 
-class Pro extends React.Component{
+class WrongNotes extends React.Component{
   render(){
+    console.log("wrong notes is called");
     return(
-      <Grid className="text-center">
-        <Row className="title">
-          <Col xs={12}>
-            <span>AI</span>
-          </Col>
-        </Row>
-        <Row className="pro_links">
-          <Col xs={12}>
-            <a className="side">Personal Weakness</a>
-            <a className="center">Wrong Answer Notes</a>
-            <a className="side">Study Analysis</a>
-          </Col>
-        </Row>
+      <div>
         <Row className="description">
           <Col xs={12}>
             <span className="main">Wrong Answer Notes</span>
@@ -127,9 +116,9 @@ class Pro extends React.Component{
             </Row>
           </Col>
         </Row>
-      </Grid>
+      </div>
     );
   }
 }
 
-export default Pro;
+export default WrongNotes;

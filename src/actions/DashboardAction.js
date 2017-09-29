@@ -52,8 +52,8 @@ const weeklyStatus =  [
 	}
 ];
 
-const dailyData = [
-{
+const dailyData =
+[{
   'type'  : 'Dialogue Practice',
 	'data'	: [
 		{
@@ -351,6 +351,8 @@ const dailyData2 =
 		}]
 	}]
 }];
+
+
 
 export function getWeeks(){
   return (dispatch, getState) => {

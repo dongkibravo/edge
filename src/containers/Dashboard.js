@@ -17,6 +17,8 @@ class Dashboard extends React.Component{
   }
 
   render(){
+    console.log("dashboard babe");
+    console.log(this.props.match);
     const Page = () => (
       <Switch>
         <Route exact path={'/dashboard'} component={WeekContainer} />
