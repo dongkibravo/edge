@@ -27,16 +27,30 @@ const PT =
 
 const quizWeeks =
 [{
-	num	:	1,
-	title	: 'airport',
-	quizzes : ['pattern', 'vocabulary', 'dialogue']
-},
-{
-	num	: 2,
-	title	:	'airplane',
-	quizzes	:	['pattern', 'vocabulary', 'dialogue']
-}
-];
+	week_num	:	1,
+	title	: 'Airplane',
+	schedule : [{day : 2, data_type : 'Pattern', test_type : 'Quiz' },
+						  {day : 3, data_type : 'Vocabulary', test_type : 'Quiz'},
+						  {day : 3, data_type : 'Dialogue', test_type : 'Quiz'}]
+},{
+	week_num	: 2,
+	title	:	'Airplane',
+	schedule : [{day : 2, data_type : 'Pattern', test_type : 'Quiz' },
+						  {day : 3, data_type : 'Vocabulary', test_type : 'Quiz'},
+						  {day : 3, data_type : 'Dialogue', test_type : 'Quiz'}]
+},{
+	week_num	: 3,
+	title	:	'Airplane',
+	schedule : [{day : 2, data_type : 'Pattern', test_type : 'Quiz' },
+						  {day : 3, data_type : 'Vocabulary', test_type : 'Quiz'},
+						  {day : 3, data_type : 'Dialogue', test_type : 'Quiz'}]
+},{
+	week_num	: 4,
+	title	:	'Airplane',
+	schedule : [{day : 2, data_type : 'Pattern', test_type : 'Quiz' },
+						  {day : 3, data_type : 'Vocabulary', test_type : 'Quiz'},
+						  {day : 3, data_type : 'Dialogue', test_type : 'Quiz'}]
+}];
 
 
 // weekly
