@@ -1,5 +1,5 @@
 const initialState={
-  titles: [],
+  titles: [ 'Airport', 'Airplane'],
   weeklyStatus: [],
   dailyData: []
 };

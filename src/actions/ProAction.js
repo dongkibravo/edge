@@ -25,6 +25,20 @@ const PT =
 	]
 };
 
+const quizWeeks =
+[{
+	num	:	1,
+	title	: 'airport',
+	quizzes : ['pattern', 'vocabulary', 'dialogue']
+},
+{
+	num	: 2,
+	title	:	'airplane',
+	quizzes	:	['pattern', 'vocabulary', 'dialogue']
+}
+];
+
+
 // weekly
 // filter the quiz log to get only wrong questions
 const quizResult =
@@ -214,6 +228,16 @@ const dialogueScore = {
 const question_num = [ 10, 8, 9, 11, 7 ]
 const correct_num = [ 10, 7, 7, 8, 7]
 */
+export function getQuizWeeks(){
+	return(dispatch, getState) => {
+		const state = getState();
+		let jwtToken = state.auth.jwtToken;
+		dispatch({
+			type: "GET_QUIZ_WEEKS_FULFILLED",
+			payload: quizWeeks
+		});
+	};
+}
 
 export function getQuizResult(week){
   return (dispatch, getState) => {
@@ -225,7 +249,6 @@ export function getQuizResult(week){
     });
   };
 }
-
 
 export function getPersonalTraining(){
   return (dispatch, getState) => {

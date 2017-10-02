@@ -4,21 +4,13 @@ import {connect} from 'react-redux';
 import '../styles/css/pro.notes.css';
 import WeekTable from '../components/Note.WeekTable';
 import QuizTable from '../components/Note.QuizTable';
-import { getQuizResult } from '../actions/ProAction';
+import { getQuizResult, getQuizWeeks } from '../actions/ProAction';
 
 class WrongNotes extends React.Component{
 
-  constructor(){
-    console.log("constructor");
-    super();
-    this.state={
-      isHidden: true
-    };
-
-  }
-
   componentWillMount(){
     console.log("will mount in note");
+    this.props.getQuizWeeks();
   }
 
 
@@ -26,12 +18,6 @@ class WrongNotes extends React.Component{
     console.log("did mount in note");
   }
 
-  onWeekClick(){
-    alert("clicked clicked");
-    this.setState({
-      isHidden: !this.state.isHidden
-    });
-  }
 
   // onclick -> setState to the new props.quizResult
   onClickHandler(props){
@@ -40,6 +26,7 @@ class WrongNotes extends React.Component{
 
   render(){
     console.log("wrong notes is called");
+    console.log(this.props.weeks);
     return(
       <div>
         <Row className="description">
@@ -48,8 +35,8 @@ class WrongNotes extends React.Component{
             <span className="sub">Wrong Answer Notes를 통해 Day 별 퀴즈 활동에서 틀린 내용들을 볼 수 있습니다.</span>
           </Col>
         </Row>
-        <WeekTable clickHandler={this.onWeekClick.bind(this)}
-          display={this.state.isHidden}/>
+        <WeekTable weeks={this.props.weeks} status={this.props.status}
+          getQuiz={this.props.getQuizResult}/>
         <QuizTable />
       </div>
     );
@@ -59,7 +46,8 @@ class WrongNotes extends React.Component{
 const mapStateToProps = (state) => {
   return{
     quizResult: state.pro.quizResult,
-    titles: state.dashboard.titles
+    weeks: state.pro.quizWeeks,
+    status: state.pro.status
   };
 };
 
@@ -67,6 +55,9 @@ const mapDispatchToProps = (dispatch) => {
   return{
     getQuizResult: (week) => {
       dispatch(getQuizResult(week));
+    },
+    getQuizWeeks: ()=>{
+      dispatch(getQuizWeeks());
     }
   };
 };

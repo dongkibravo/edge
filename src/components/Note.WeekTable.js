@@ -1,23 +1,26 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
-import '../styles/dropdown.css';
+import '../styles/css/dropdown.css';
 
-const WeekTable = React.createClass({
+const WeekTable =  React.createClass({
   getInitialState: function() {
     return {
-      listVisible: false
+      listVisible: false,
+
     };
   },
 
   select: function(item) {
     this.props.selected = item;
   },
-
-  show: function(event) {
+  show: function(index, event) {
+    this.props.getQuiz(1);
     this.setState({ listVisible: true });
+    console.log(index);
     document.addEventListener("click", this.hide);
+    console.log(event.currentTarget);
+
     console.log(event.currentTarget.nextSibling.style="visibility:visible;");
-    // document.querySelector()
   },
   hide: function() {
     this.setState({ listVisible: false });
@@ -26,49 +29,39 @@ const WeekTable = React.createClass({
   },
 
   render: function() {
+
+    const { weeks } = this.props;
+
     return (
       <Row className="week_table">
         <Col xs={12} md={6} mdOffset={3} lg={4} lgOffset={4}>
-          <div>
-            <div className={"dropdown-container" + (this.state.listVisible ? " show" : "")}>
-              <div className={"dropdown-display" + (this.state.listVisible ? " clicked": "")} onClick={this.show}>
-                <span style={{ color: this.props.selected.hex }}>{this.props.selected.name}</span>
-                <i className="fa fa-angle-down"></i>
-              </div>
-              <div className="dropdown-list">
-                <div>
-                  <div><span>111</span></div>
-                  <div><span>222</span></div>
-                  <div><span>333</span></div>
+          <div className="table_overflow">
+            {
+              weeks.map((week)=>(
+              <div key={'week_'+(week.num)} className={"dropdown-container" + (this.state.listVisible ? " show" : "")}>
+                <div className={"dropdown-display" + (this.state.listVisible ? " clicked": "")}
+                  onClick={(e)=>this.show(week.num,e)}>
+                  <span>Week{week.num}. {week.title}</span>
+                  <i className="glyphicon glyphicon-menu-down"></i>
+                </div>
+                <div className="dropdown-list">
+                  <div>
+                    {this.renderListItems(week.quizzes)}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className={"dropdown-container"}>
-              <div className={"dropdown-display"}>
-                <span>second one</span>
-                <i className="fa fa-angle-down"></i>
-              </div>
-            </div>
-            <div className={"dropdown-container"}>
-              <div className={"dropdown-display"}>
-                <span>third one</span>
-                <i className="fa fa-angle-down"></i>
-              </div>
-            </div>
+            ))}
           </div>
         </Col>
       </Row>
     );
   },
 
-  renderListItems: function() {
+  renderListItems: function(quizzes) {
     var items = [];
-
-
-    items.push(<div><span>111</span></div>);
-    items.push(<div><span>222</span></div>);
-    items.push(<div><span>333</span></div>);
-
+    quizzes.map((quiz, index)=>(
+      items.push(<div key={'quiz_'+index}><span>{quiz}</span></div>)
+    ));
     return items;
   }
 });

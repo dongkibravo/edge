@@ -106,3 +106,9 @@ div.dropdown-container > div.dropdown-list > div > div > span {
   float: left;
   width: 100%;
 }
+
+
+.table_overflow{
+  height: 250px;
+  overflow-y: auto;
+}

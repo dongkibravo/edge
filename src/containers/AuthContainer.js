@@ -13,7 +13,7 @@ import Profile from '../components/Profile';
 class RootRouterWrapper extends React.Component{
 
   componentDidMount(){
-    const { currentUrl, jwt } = this.props;
+    const { currentUrl, jwt, titles } = this.props;
     console.log("component did mount in wrapper");
     console.log(currentUrl);
 
@@ -21,6 +21,11 @@ class RootRouterWrapper extends React.Component{
       console.log("not logged in");
       this.props.setRedirectUrl(currentUrl);
       this.props.history.push("/login");
+    }else{
+      if(!titles){
+        console.log("in auth container, no titles yet");
+      }
+
     }
   }
 
@@ -62,7 +67,8 @@ const mapDispatchToProps = dispatch =>{
 const mapStateToProps = (state, props) =>{
   return{
     currentUrl: props.location.pathname,
-    jwt: state.auth.jwtToken
+    jwt: state.auth.jwtToken,
+    titles: state.dashboard.titles
   };
 };
 

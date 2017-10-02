@@ -35,6 +35,9 @@ class LogIn extends React.Component{
     console.log("componentDidMount");
     const {jwt, redirectUrl, error} = this.props;
     if(jwt){
+
+      console.log("NEED TO CALL GET_TITLES ACTION HERE");
+
       this.props.history.push(redirectUrl);
     }
     else if(error){
