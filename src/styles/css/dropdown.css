@@ -94,7 +94,6 @@ div.dropdown-container > div.dropdown-list > div > div:hover {
 }
 div.dropdown-container > div.dropdown-list > div > div.selected {
   background: #e1dffd;
-  color: white;
 }
 div.dropdown-container > div.dropdown-list > div > div > * {
   height: 0;
@@ -112,6 +111,17 @@ div.dropdown-container > div.dropdown-list > div > div > span {
 }
 
 .table_overflow{
-  height: 480px;
+  max-height: 480px;
   overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }

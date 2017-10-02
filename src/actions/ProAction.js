@@ -32,19 +32,22 @@ const quizWeeks =
 	schedule : [{day : 2, data_type : 'Pattern', test_type : 'Quiz' },
 						  {day : 3, data_type : 'Vocabulary', test_type : 'Quiz'},
 						  {day : 3, data_type : 'Dialogue', test_type : 'Quiz'}]
-},{
+},
+{
 	week_num	: 2,
 	title	:	'Airplane',
 	schedule : [{day : 2, data_type : 'Pattern', test_type : 'Quiz' },
 						  {day : 3, data_type : 'Vocabulary', test_type : 'Quiz'},
 						  {day : 3, data_type : 'Dialogue', test_type : 'Quiz'}]
-},{
+},
+{
 	week_num	: 3,
 	title	:	'Airplane',
 	schedule : [{day : 2, data_type : 'Pattern', test_type : 'Quiz' },
 						  {day : 3, data_type : 'Vocabulary', test_type : 'Quiz'},
 						  {day : 3, data_type : 'Dialogue', test_type : 'Quiz'}]
-},{
+},
+{
 	week_num	: 4,
 	title	:	'Airplane',
 	schedule : [{day : 2, data_type : 'Pattern', test_type : 'Quiz' },
@@ -58,43 +61,40 @@ const quizWeeks =
 const quizResult =
 [{
 	'timestamp' : '2017-09-09 18:50:20',
-	'quiz_type'	: 'Vocabulary',
+	'data_type'	: 'Vocabulary',
+	'test_type' : 'Quiz',
 	'log'		:
 	[{
 		'question'		:	'사과',
 		'answer'		:	'apple',
 		'user_answer'	: 	'apple',
-		'result'		:	true,
 		'score'			: 	1
 	},{
 		'question'		:	'에반',
 		'answer'		:	'evan',
 		'user_answer'	:	'james',
-		'result'		:	false,
 		'score'			: 	1
 	},{
 		'question'		:	'에반',
 		'answer'		:	'evan',
 		'user_answer'	:	'james',
-		'result'		:	false,
 		'score'			: 	1
 	},{
 		'question'		:	'에반',
 		'answer'		:	'evan',
 		'user_answer'	:	'james',
-		'result'		:	false,
 		'score'			: 	1
 	},{
 		'question'		:	'에반',
 		'answer'		:	'evan',
 		'user_answer'	:	'james',
-		'result'		:	false,
 		'score'			: 	1
 	}]
 },
 {
 	'timestamp' : '2017-09-09 18:50:20',
-	'quiz_type'	: 'Pattern',
+	'data_type'	: 'Pattern',
+	'test_type' : 'Quiz',
 	'log'		:
 	[{
 		'pattern'		: 'is there~',
@@ -135,7 +135,8 @@ const quizResult =
 },
 {
 	'timestamp' : '2017-09-09 18:50:20',
-	'quiz_type'	: 'Dialogue',
+	'data_type'	: 'Dialogue',
+	'test_type' : 'Quiz',
 	'log'		:
 	[{
 		'topic'	:	'asking for help',

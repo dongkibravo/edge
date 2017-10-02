@@ -12,9 +12,10 @@ class WrongNotes extends React.Component{
     super();
     this.state={
       status : [],
-      clickedWeek : null,
+      week : null,
       displayedQuiz : null,
       selectedDiv : null,
+      day : null,
     };
   }
 
@@ -33,31 +34,25 @@ class WrongNotes extends React.Component{
     console.log("component did update");
     console.log(this.state);
 
-    // let thisWeek = this.state.clickedWeek;
-    // if(thisWeek !== null){
-    //   console.log("getting new quiz result of week "+thisWeek);
-    //   this.props.getQuizResult(thisWeek);
-    // }
-
   }
 
   show(index, event){
     let status = this.state.status;
 
-    if(this.state.clickedWeek!==null){
-      let clickedWeek = this.state.clickedWeek;
-      status[clickedWeek] = false;
-      if(clickedWeek !== index){
+    if(this.state.week!==null){
+      let week = this.state.week;
+      status[week] = false;
+      if(week !== index){
         this.props.getQuizResult(index);
 
         status[index] = true;
-        clickedWeek = index;
+        week = index;
       }else{
-        clickedWeek = null;
+        week = null;
       }
       this.setState({
         status,
-        clickedWeek,
+        week,
         selectedDiv: null
       });
     }else{
@@ -66,12 +61,12 @@ class WrongNotes extends React.Component{
       status[index] = true;
       this.setState({
         status,
-        clickedWeek: index
+        week: index
       });
     }
   }
 
-  quizDayClicked(index, event){
+  quizDayClicked(index, day, event){
     console.log("on Quiz day clicked");
 
     if(this.state.selectedDiv !== null){
@@ -80,8 +75,9 @@ class WrongNotes extends React.Component{
     event.currentTarget.classList.add('selected');
 
     this.setState({
-      displayedQuiz: this.props.quizResult[index],
-      selectedDiv: event.currentTarget
+      displayedQuiz : this.props.quizResult[index],
+      selectedDiv   : event.currentTarget,
+      day           : day
     });
   }
 
@@ -97,7 +93,14 @@ class WrongNotes extends React.Component{
         </Row>
         <WeekTable weeks={this.props.weeks} status={this.state.status}
          show={this.show.bind(this)} onClick={this.quizDayClicked.bind(this)} />
-        <QuizTable />
+         <Row className="note_table_row text-left">
+           <Col className="note_table" xs={12} md={10} mdOffset={1}>
+             {this.state.displayedQuiz?
+               <QuizTable data={this.state.displayedQuiz}
+                 day={this.state.day} week={this.state.week} />
+               : null}
+           </Col>
+         </Row>
       </div>
     );
   }

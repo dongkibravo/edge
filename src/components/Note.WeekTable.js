@@ -5,7 +5,7 @@ import '../styles/css/dropdown.css';
 function  renderListItems(schedule, onClick) {
   var items = [];
   schedule.map((test, index)=>(
-    items.push(<div key={'test_'+index} onClick={(evt)=>onClick(index, evt)}>
+    items.push(<div key={'test_'+index} onClick={(evt)=>onClick(index, test.day, evt)}>
       <span>Day {test.day} - {test.data_type} {test.test_type}</span>
     </div>)
   ));

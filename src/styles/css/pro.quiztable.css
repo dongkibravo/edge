@@ -1,0 +1,35 @@
+span.note_title{
+  display: block;
+  padding-top: 40px;
+  font-size: 16px;
+  weight: 500;
+  color: #333333;
+}
+
+ span.note_timestamp{
+   display: block;
+   padding: 20px 0;
+   font-size: 16px;
+   weight: 500;
+   color: #b3b3b3;
+ }
+
+table{
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #e6e6e6;
+  border-collapse: collapse;
+}
+table>tbody>tr{
+  border:1px solid #e6e6e6;
+}
+
+table>thead>tr{
+   background-color: #65a0ee;
+   color: #fff;
+ }
+
+table td{
+   font-size: 16px;
+   padding: 10px 0;
+ }
