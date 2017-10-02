@@ -3,9 +3,9 @@ import {Link} from 'react-router-dom';
 import {Grid, Row, Col} from 'react-bootstrap';
 
 
-export const Root = (props) => {
+export const ProNav = (props) => {
   return(
-    <Grid className="text-center">
+    <div>
       <Row className="title">
         <Col xs={12}>
           <span>AI</span>
@@ -24,9 +24,8 @@ export const Root = (props) => {
           </Link>
         </Col>
       </Row>
-      {props.childdren}
-    </Grid>
+    </div>
   );
 };
 
-export default Root;
+export default ProNav;

@@ -1,5 +1,5 @@
 const initialState ={
-  jwtToken: null,
+  jwtToken: 'truetureture',
   error: null,
   redirectUrl: null,
 };

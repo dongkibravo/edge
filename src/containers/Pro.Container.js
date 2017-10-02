@@ -6,22 +6,36 @@ import WrongNotes from './Pro.WrongNote';
 import Analysis from './Pro.Analysis';
 import {Grid, Row, Col} from 'react-bootstrap';
 import '../styles/css/pro.notes.css';
-import Root from '../components/pro.root';
+import ProNav from '../components/pro.nav';
 
 class Pro extends React.Component{
+
+  componentDidlMount(props){
+    console.log("component did mount in pro container");
+    console.log(this.props.match.url);
+  }
+
+  shouldComponentUpdate(nextProps, nextState){
+    console.log("should update in pro");
+    return true;
+  }
   render(){
     console.log("pro was called");
-
-    console.log(this.props.match.url);
-    const match = this.props.match;
-
-//    <Route path={'/pro/personal-training'} component={Training} />
-// <Route path={'/pro/analysis'} component={Analysis} />
+    const Page = () => (
+      <Switch>
+        <Route exact path={'/pro'}
+          render={()=><Redirect to="/pro/personal-training" />} />
+        <Route exact path={'/pro/personal-training'} component={Training} />
+        <Route exact path={'/pro/wrong-notes'} component={WrongNotes} />
+        <Route exact path={'/pro/analysis'} component={Analysis} />
+      </Switch>
+    );
 
     return(
-      <Root>
-        <Route exact path={'${match.url}/wrong-notes'} component={WrongNotes} />
-      </Root>
+      <Grid className="text-center">
+        <ProNav />
+        <Page />
+      </Grid>
     );
   }
 }

@@ -26,22 +26,18 @@ class RootRouterWrapper extends React.Component{
 
   render(){
     const { jwt } = this.props;
-    const match = this.props.match;
 
-    console.log("match");
-    console.log(match);
     if(jwt){
       return(
         <div id="RootRouterWrapper">
           <Switch>
-            <Route exact path="/home" component={ContentCategory} />
-            <Route>
-              <Root>
+            <Route path="/home" component={ContentCategory} />
+            <Root>
+              <Switch>
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/pro" component={Pro} />
-                <Route path="/profile" component={Profile} />
-              </Root>
-            </Route>
+              </Switch>
+            </Root>
           </Switch>
         </div>
       );
