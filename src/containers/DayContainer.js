@@ -7,14 +7,18 @@ import DayInfoTable from '../components/DayInfoTable';
 
 class DayContainer extends React.Component{
 
+  // ***************************************
+  //need to check this part
+  // ***************************************
   componentWillMount(){
     console.log("Component Will Mount in Day");
+    const {day, week} = this.props.match.params;
+    this.props.getDay(week, day);
   }
 
   componentDidMount(){
     console.log("Component Did Mount in day");
-    const {day, week} = this.props.match.params;
-    this.props.getDay(week, day);
+
   }
 
   // 이거 새로운 url을 그냥 쳐넣으면 어떻게 되지???
@@ -24,7 +28,7 @@ class DayContainer extends React.Component{
   }
 
   render(){
-    const {week, day} = this.props.match.params;
+    let {week, day} = this.props.match.params;
 
     return(
       <DayInfoTable dailyData={this.props.dailyData} titles={this.props.titles}

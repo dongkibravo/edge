@@ -5,10 +5,10 @@ import basic_lock from '../static/pt_lock.svg';
 import ongoing from '../static/pt_ongoing.svg';
 import complete from '../static/pt_complete.svg';
 
-function sessionImage(session, onClickHandler) {
+function sessionImage(session) {
   const {session_num, materials, status} = session;
 
-  let linkUrl = '/dashboard/';
+  let linkUrl = '/pro/personal-training/'+session_num;
   switch(status){
     case "complete":{
       return <Link to={linkUrl}><input className="pt_circle complete img-circle"
@@ -26,8 +26,7 @@ function sessionImage(session, onClickHandler) {
 }
 
 const TrainingTables = (props) =>{
-  const {data, onClickHandler} = props;
-  console.log(data);
+  const {data} = props;
   return(
     <div className="session_boxes">
       {data.map((session, index)=>(
@@ -37,7 +36,7 @@ const TrainingTables = (props) =>{
             <span>Session {session.session_num}</span>
           </div>
           <div className="session_image">
-            {sessionImage(session, onClickHandler)}
+            {sessionImage(session)}
           </div>
         </div>
       ))}

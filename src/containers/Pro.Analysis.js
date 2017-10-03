@@ -1,4 +1,5 @@
 import React from 'react';
+import ProNav from '../components/pro.nav';
 
 class Analysis extends React.Component{
 
@@ -6,7 +7,10 @@ class Analysis extends React.Component{
     console.log("analysis is called");
     return(
       <div>
-        Pro Analysis Page
+        <ProNav />
+        <div>
+          Pro Analysis Page
+        </div>
       </div>
     );
   }

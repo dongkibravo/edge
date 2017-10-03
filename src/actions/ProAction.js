@@ -1,40 +1,134 @@
 const PT =
 [{
-	'session_num'				:		1,
-	'materials'	:		['aaa111','bbb111'],
+'session_num'				:		1,
+	'materials'	:		[{'data_type':'Pattern','test_type':'Practice'},
+									 {'data_type':'Dialogue','test_type':'Practice'}],
 	'status'		:		'complete'
 },
 {
 	'session_num'				:		2,
-	'materials'	:		['aaa222','bbb222'],
+	'materials'	:		[{'data_type':'Pattern','test_type':'Practice'},
+									 {'data_type':'Dialogue','test_type':'Practice'}],
 	'status'		:		'ongoing'
 },
 {
 	'session_num'				:		3,
-	'materials'	:		['aaa333','bbb333'],
+	'materials'	:		[{'data_type':'Pattern','test_type':'Practice'},
+									 {'data_type':'Dialogue','test_type':'Practice'}],
 	'status'		:		'locked'
 },
 {
 	'session_num'				:		4,
-	'materials' : 	['aaa444', 'bbb444'],
-	'status'		:		'locked'
-},
-{
-	'session_num'				:		5,
-	'materials' : 	['aaa444', 'bbb444'],
-	'status'		:		'locked'
-},
-{
-	'session_num'				:		6,
-	'materials' : 	['aaa444', 'bbb444'],
-	'status'		:		'locked'
-},
-{
-	'session_num'				:		7,
-	'materials' : 	['aaa444', 'bbb444'],
+	'materials'	:		[{'data_type':'Pattern','test_type':'Practice'},
+									 {'data_type':'Dialogue','test_type':'Practice'}],
 	'status'		:		'locked'
 }];
 
+const PT_detail =
+[{
+	'data_type' : 'Vocabulary',
+	'test_type' : 'Practice',
+	'data'			:
+	[{
+		'title'	: 'Vocabulary Training 1',
+		'set'	:
+		[{
+			'vocab_en': 'apple',
+			'vocab_jp': '사과'
+		},
+		{
+			'vocab_en': 'pepsi',
+			'vocab_jp': '펩시'
+		},
+		{
+			'vocab_en': 'cola',
+			'vocab_jp': '콜라'
+		},
+		{
+			'vocab_en': 'kinder',
+			'vocab_jp': '킨더',
+		},
+		{
+			'vocab_en': 'macbook',
+			'vocab_jp': '맥북'
+		},
+		{
+			'vocab_en': 'eraser',
+			'vocab_jp': '지우개'
+		},
+		{
+			'vocab_en': 'cup',
+			'vocab_jp': '잔'
+		},
+		{
+			'vocab_en': 'pillar',
+			'vocab_jp': '기둥'
+		}]
+	}]
+},
+{
+	'data_type' : 'Pattern',
+	'test_type' : 'Practice',
+	'data'			:
+	[{
+		'title'	: 'Pattern Training 1',
+		'set'	:
+		[{
+	    'pattern_en'  : 'Can you help me~',
+	    'pattern_jp'  : '~手伝ってくれますか?'
+	  },
+	  {
+	    'pattern_en'  : 'May I see your~',
+	    'pattern_jp'  : '~を見せて頂けますか?',
+	  },
+	  {
+	    'pattern_en'  : 'Put/Stow it~',
+	    'pattern_jp'  : '~置いてください。',
+	  }]
+	}]
+},
+{
+	'data_type' : 'Vocabulary',
+	'test_type' : 'Test',
+	'data'			:
+	[{'date'	: '2017-09-27 18:30:00',
+			// this is because to match the json format in practice
+		'title': 'Personal Training Voca Test 1',	// Different Naming?
+		'log' :
+		[{
+			'question'		:	'사과',
+			'answer'			:	'apple',
+			'user_answer'	: 'apple',
+			'result'			:	true
+		},{
+			'question'		:	'에반',
+			'answer'			:	'evan',
+			'user_answer'	:	'james',
+			'result'			:	false
+		},{
+			'question'		:	'에반',
+			'answer'			:	'evan',
+			'user_answer'	:	'james',
+			'result'			:	false
+		},{
+			'question'		:	'에반',
+			'answer'			:	'evan',
+			'user_answer'	:	'james',
+			'result'			:	false
+		},{
+			'question'		:	'에반',
+			'answer'			:	'evan',
+			'user_answer'	:	'james',
+			'result'			:	false
+		}]
+	}]
+},
+{
+	'data_type' : 'Pattern',
+	'test_type' : 'Test',
+	'data' 			: null
+}
+];
 
 const quizWeeks =
 [{
@@ -258,8 +352,8 @@ const correct_num = [ 10, 7, 7, 8, 7]
 
 export function getQuizWeeks(){
 	return(dispatch, getState) => {
-		const state = getState();
-		let jwtToken = state.auth.jwtToken;
+		// const state = getState();
+		// let jwtToken = state.auth.jwtToken;
 		dispatch({
 			type: "GET_QUIZ_WEEKS_FULFILLED",
 			payload: quizWeeks
@@ -269,8 +363,8 @@ export function getQuizWeeks(){
 
 export function getQuizResult(week){
   return (dispatch, getState) => {
-    const state = getState();
-    let jwtToken = state.auth.jwtToken;
+    // const state = getState();
+    // let jwtToken = state.auth.jwtToken;
     dispatch({
       type: "GET_QUIZ_RESULT_FULFILLED",
       payload: quizResult
@@ -280,8 +374,8 @@ export function getQuizResult(week){
 
 export function getPersonalTraining(){
   return (dispatch, getState) => {
-    const state = getState();
-    let jwtToken = state.auth.jwtToken;
+    // const state = getState();
+    // let jwtToken = state.auth.jwtToken;
     dispatch({
       type: "GET_PT_FULFILLED",
       payload: PT
@@ -289,10 +383,25 @@ export function getPersonalTraining(){
   };
 }
 
+//materials argumnet looks like
+// [{'data_type':'Dialogue','test_type':'Practice'},
+//   {'data_type':'Pattern', 'test_type':'Quiz'}]
+// session is just the number of session
+export function getPtDetail(session, materials){
+	return (dispatch, getState) => {
+		// const state = getState();
+		// let jwtToken = state.auth.jwtToken;
+		dispatch({
+			type: "GET_PT_DETAUL_FULFILLED",
+			payload: PT_detail
+		});
+	};
+}
+
 export function getQuizScore(){
   return (dispatch, getState) => {
-    const state = getState();
-    let jwtToken = state.auth.jwtToken;
+    // const state = getState();
+    // let jwtToken = state.auth.jwtToken;
     dispatch({
       type: "GET_SCORE_FULFILLED",
       paylaod: quizScore

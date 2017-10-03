@@ -4,12 +4,13 @@ import {connect} from 'react-redux';
 import '../styles/css/pro.notes.css';
 import WeekTable from '../components/Note.WeekTable';
 import QuizTable from '../components/Note.QuizTable';
+import ProNav from '../components/pro.nav';
 import { getQuizResult, getQuizWeeks } from '../actions/ProAction';
 
 class WrongNotes extends React.Component{
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state={
       status : [],
       week : null,
@@ -18,35 +19,34 @@ class WrongNotes extends React.Component{
       day : null,
     };
   }
-
+  
   componentWillMount(){
-    this.props.getQuizWeeks();
-    this.props.getQuizResult(0);    // UPDATE THIS PART DURING API CONNECTION
+    if(this.props.weeks.length === 0){
+      this.props.getQuizWeeks();
+    }
   }
 
   componentWillReceiveProps(nextProps){
-    this.setState({
-      status : Array(nextProps.weeks.length).fill(false)
-    });
-  }
-
-  componentDidUpdate(){
-    console.log("component did update");
-    console.log(this.state);
+    if(this.props.weeks.length===0){
+      this.setState({
+        status : Array(nextProps.weeks.length).fill(false)
+      });
+    }
   }
 
   show(index, event){
     let status = this.state.status;
 
-    if(this.state.week!==null){
+    // the week table has been already clicked
+    if(this.state.week !== null){
       let week = this.state.week;
       status[week] = false;
-      if(week !== index){
+      if(week !== index){  // the clicked week is not same as previously clicked week
         this.props.getQuizResult(index);
-
         status[index] = true;
         week = index;
-      }else{
+
+      }else{  // the clicked week si same as previously clicked week
         week = null;
       }
       this.setState({
@@ -54,7 +54,7 @@ class WrongNotes extends React.Component{
         week,
         selectedDiv: null
       });
-    }else{
+    }else{  // week table has not been clicked yet
       this.props.getQuizResult(index);
 
       status[index] = true;
@@ -66,8 +66,6 @@ class WrongNotes extends React.Component{
   }
 
   quizDayClicked(index, day, event){
-    console.log("on Quiz day clicked");
-
     if(this.state.selectedDiv !== null){
       this.state.selectedDiv.classList.remove('selected');
     }
@@ -83,6 +81,7 @@ class WrongNotes extends React.Component{
   render(){
     return(
       <div>
+        <ProNav />
         <Row className="description">
           <Col xs={12}>
             <span className="main">Wrong Answer Notes</span>

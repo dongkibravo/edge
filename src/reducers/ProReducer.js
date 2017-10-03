@@ -1,8 +1,9 @@
 const initialState={
-  personalTraining  : [],
+  ptSessions  : null,
   quizResult        : [],
   quizScore         : [],
   quizWeeks         : [],
+  sessionDetail         : [],
   status    : false
 };
 
@@ -10,7 +11,7 @@ function proReducer(state=initialState, action){
   switch (action.type){
     case "GET_PT_FULFILLED":{
       return Object.assign({}, state, {
-        personalTraining: action.payload
+        ptSessions: action.payload
       });
     }
 
@@ -32,7 +33,11 @@ function proReducer(state=initialState, action){
       });
     }
 
-
+    case "GET_PT_DETAUL_FULFILLED":{
+      return Object.assign({}, state, {
+        sessionDetail: action.payload
+      });
+    }
 
     default:
       return state;

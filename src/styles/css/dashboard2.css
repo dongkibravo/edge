@@ -10,10 +10,15 @@
   margin-top: 4%;
   border-radius: 0.7em;
   overflow: hidden;
+  text-align: left;
 }
 
-.info_table .table_title{
+.info_table.dashboard>div.table_title{
   background-color: #65a0ee;
+}
+
+.info_table.ai>.table_title{
+  background-color: #675df7;
 }
 
 .info_table .table_title .title_padding{
@@ -62,8 +67,8 @@
   font-weight:700;
   font-size: 14px;
   color:#fff;
-  background-color: #51bdd7;
 }
+
 .day_detail>.day_detail_title>div{
   padding: 11px 0;
 }
@@ -115,13 +120,13 @@
   border: 1px solid #e6e6e6;
   border-collapse: collapse;
 }
-.vocab_prac table th{
+.vocab_prac table>thead>tr>td{
   text-align: center;
   background: #51bdd7;
   color: #fff;
 }
 
-.vocab_prac table td{
+.vocab_prac table>tbody>tr>td{
   background: #fff;
   border: 1px solid #e6e6e6;
 }
@@ -130,4 +135,16 @@
   width:0;
   height:25px;
   border-left: 1px dashed grey;
+}
+
+.info_table.dashboard .detail_table>.detail_content .day_detail_title{
+  background-color: #51bdd7;
+}
+
+.info_table.ai .detail_table>.detail_content .day_detail_title{
+  background-color: #75affc;
+}
+
+.info_table.ai .detail_content thead>tr>td{
+  background-color: #75affc !important;
 }

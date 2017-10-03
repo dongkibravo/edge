@@ -31,13 +31,30 @@ div.session_box>div.session_image .pt_circle{
 }
 
 
-div.session_box.complete{
+/*div.session_box.complete{
+  border: 1px solid #675df7 !important;
+}*/
+
+/*div.session_box.complete>div.session_title{
+  background-color: #675df7;
+}*/
+
+div.session_box.ongoing{
   border: 1px solid #675df7 !important;
 }
 
-div.session_box.complete>div.session_title{
+div.session_box.ongoing>div.session_title{
   background-color: #675df7;
 }
+
+div.session_box.complete{
+  border: 1px solid #84b3f1 !important;
+}
+div.session_box.complete>div.session_title{
+  background-color: #84b3f1;
+}
+
+
 
 div.session_box.complete>div.session_image{
   padding:0 20px !important;

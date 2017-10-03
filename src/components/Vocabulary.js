@@ -1,7 +1,9 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
 
-const Vocabulary = ({dataSet}) =>{
+const Vocabulary = (props) =>{
+  let {dataSet} = props;
+  console.log(dataSet);
   return(
     <Row>
       <Col xs={12}>
@@ -11,8 +13,8 @@ const Vocabulary = ({dataSet}) =>{
               <table>
                 <thead>
                   <tr>
-                    <th>English</th>
-                    <th>Japanese</th>
+                    <td>English</td>
+                    <td>Japanese</td>
                   </tr>
                 </thead>
                 <tbody>

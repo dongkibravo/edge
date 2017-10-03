@@ -4,7 +4,7 @@ import {Row, Col} from 'react-bootstrap';
 function createTable(data){
   return(
     data.map((pattern, index)=>(
-      <Row className="qna_separation">
+      <Row className="qna_separation" key={"pattern_"+index}>
         <Col className="day_detail_qna" xs={11} md={10} mdOffset={1}>
           <Row className="pattern">
             <Col xs={12}>
@@ -18,7 +18,8 @@ function createTable(data){
   );
 }
 
-const Pattern = ({dataSet})=>{
+const Pattern = (props)=>{
+  let {dataSet} = props;
   return(
     <Row>
       <Col xs={12}>

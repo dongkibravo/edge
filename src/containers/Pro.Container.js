@@ -1,11 +1,14 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
+import {Grid} from 'react-bootstrap';
+import ProNav from '../components/pro.nav';
 import Training from './Pro.Training';
 import WrongNotes from './Pro.WrongNote';
 import Analysis from './Pro.Analysis';
-import {Grid} from 'react-bootstrap';
+import SessionDetail from './Pro.SessionDetail';
 import '../styles/css/pro.notes.css';
-import ProNav from '../components/pro.nav';
+
+// issue - when pro page is rendered, previous dashboard states are gone
 
 class Pro extends React.Component{
 
@@ -14,10 +17,6 @@ class Pro extends React.Component{
     console.log(this.props.match.url);
   }
 
-  shouldComponentUpdate(nextProps, nextState){
-    console.log("should update in pro");
-    return true;
-  }
   render(){
     console.log("pro was called");
     const Page = () => (
@@ -25,6 +24,8 @@ class Pro extends React.Component{
         <Route exact path={'/pro'}
           render={()=><Redirect to="/pro/personal-training" />} />
         <Route exact path={'/pro/personal-training'} component={Training} />
+        <Route exact path={'/pro/personal-training/:session_num'}
+          component={SessionDetail} />
         <Route exact path={'/pro/wrong-notes'} component={WrongNotes} />
         <Route exact path={'/pro/analysis'} component={Analysis} />
       </Switch>
@@ -32,7 +33,6 @@ class Pro extends React.Component{
 
     return(
       <Grid className="text-center">
-        <ProNav />
         <Page />
       </Grid>
     );
