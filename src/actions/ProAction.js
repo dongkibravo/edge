@@ -1,29 +1,40 @@
 const PT =
+[{
+	'session_num'				:		1,
+	'materials'	:		['aaa111','bbb111'],
+	'status'		:		'complete'
+},
 {
-	'week_num': 1,
-	'sessions':[
-		{
-			'session'				:		1,
-			'materials'	:		['Dialogue Practice','Pattern Practice'],
-			'status'		:		'complete'
-		},
-		{
-			'sessuib'				:		2,
-			'materials'	:		['Pattern Quiz','Vocabulary Practice'],
-			'status'		:		'ongoing'
-		},
-		{
-			'sessuib'				:		3,
-			'materials'	:		['Vocabulary Quiz','Dialogue Quiz'],
-			'status'		:		'locked'
-		},
-		{
-			'sessuib'				:		4,
-			'materials' : 	['NOTHING'],
-			'status'		:		'locked'
-		}
-	]
-};
+	'session_num'				:		2,
+	'materials'	:		['aaa222','bbb222'],
+	'status'		:		'ongoing'
+},
+{
+	'session_num'				:		3,
+	'materials'	:		['aaa333','bbb333'],
+	'status'		:		'locked'
+},
+{
+	'session_num'				:		4,
+	'materials' : 	['aaa444', 'bbb444'],
+	'status'		:		'locked'
+},
+{
+	'session_num'				:		5,
+	'materials' : 	['aaa444', 'bbb444'],
+	'status'		:		'locked'
+},
+{
+	'session_num'				:		6,
+	'materials' : 	['aaa444', 'bbb444'],
+	'status'		:		'locked'
+},
+{
+	'session_num'				:		7,
+	'materials' : 	['aaa444', 'bbb444'],
+	'status'		:		'locked'
+}];
+
 
 const quizWeeks =
 [{
@@ -243,6 +254,8 @@ const dialogueScore = {
 const question_num = [ 10, 8, 9, 11, 7 ]
 const correct_num = [ 10, 7, 7, 8, 7]
 */
+
+
 export function getQuizWeeks(){
 	return(dispatch, getState) => {
 		const state = getState();

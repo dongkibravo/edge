@@ -1,10 +1,9 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
-import {connect} from 'react-redux';
 import Training from './Pro.Training';
 import WrongNotes from './Pro.WrongNote';
 import Analysis from './Pro.Analysis';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Grid} from 'react-bootstrap';
 import '../styles/css/pro.notes.css';
 import ProNav from '../components/pro.nav';
 

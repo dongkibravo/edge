@@ -1,0 +1,53 @@
+div.training_table_row{
+  margin: 40px 0;
+}
+
+.training_table_row>div>div.session_boxes{
+  display: inline-block;
+}
+
+div.training_table_row div.session_box{
+  float: left;
+  border: 1px solid #808080;
+  margin: 20px;
+  border-radius: 1em;
+  overflow: hidden;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+div.session_box>div.session_title{
+  padding:10px 50px;
+  background-color: #808080;
+}
+
+div.session_box>div.session_image{
+  padding:30px 50px;
+}
+div.session_box>div.session_image .pt_circle{
+  width: 90px;
+  height: auto;
+}
+
+
+div.session_box.complete{
+  border: 1px solid #675df7 !important;
+}
+
+div.session_box.complete>div.session_title{
+  background-color: #675df7;
+}
+
+div.session_box.complete>div.session_image{
+  padding:0 20px !important;
+}
+
+div.session_box.complete>div.session_image>a>input{
+  width:150px;
+  height:auto;
+}
+
+div.session_box.locked>div.session_image{
+  padding: 33px 50px !important;
+}

@@ -6,9 +6,6 @@ import ContentCategory from './MainContainer';
 import {Root} from './Root';
 import Dashboard from './Dashboard';
 import Pro from './Pro.Container';
-import Dashboard2 from './Dashboard2';
-import DayContainer from './DayContainer';
-import Profile from '../components/Profile';
 
 class RootRouterWrapper extends React.Component{
 

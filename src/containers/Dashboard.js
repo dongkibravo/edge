@@ -5,8 +5,6 @@ import {connect} from 'react-redux';
 import { getWeeks } from '../actions/DashboardAction';
 import WeekContainer from './WeekContainer';
 import DayContainer from './DayContainer';
-import Navbar from '../components/NavBar.console.js';
-import {Grid} from 'react-bootstrap';
 
 // Action needs to be applied at this point to receive user's weekly
 // status and dispatch it to global state or pass them by props

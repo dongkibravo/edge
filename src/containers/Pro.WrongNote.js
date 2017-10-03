@@ -1,5 +1,5 @@
 import React from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
+import {Row, Col} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import '../styles/css/pro.notes.css';
 import WeekTable from '../components/Note.WeekTable';
@@ -21,7 +21,7 @@ class WrongNotes extends React.Component{
 
   componentWillMount(){
     this.props.getQuizWeeks();
-    this.props.getQuizResult(0);
+    this.props.getQuizResult(0);    // UPDATE THIS PART DURING API CONNECTION
   }
 
   componentWillReceiveProps(nextProps){
@@ -33,7 +33,6 @@ class WrongNotes extends React.Component{
   componentDidUpdate(){
     console.log("component did update");
     console.log(this.state);
-
   }
 
   show(index, event){
@@ -82,7 +81,6 @@ class WrongNotes extends React.Component{
   }
 
   render(){
-    console.log("wrong notes is called");
     return(
       <div>
         <Row className="description">
