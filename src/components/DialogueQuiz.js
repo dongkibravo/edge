@@ -12,23 +12,6 @@ function clickclick(){
 
 
 const DialogueQuiz = ({dataSet}) => {
-//{quiz_log.answer}
-// <a style={{cursor:"pointer"}}>answer</a>
-/*
-<div class="dropdown btn-group">
-<button id="bg-nested-dropdown" role="button" aria-haspopup="true"
-aria-expanded="false" className="dropdown-toggle btn btn-default" style="">
-pro
-</button>
-<ul role="menu" className="dropdown-menu" aria-labelledby="bg-nested-dropdown">
-<li role="presentation">
-<a role="menuitem" tabindex="-1" href="#">AI</a></li></ul></div>
-
-<DropdownButton title="Pro" id="bg-nested-dropdown" noCaret>
-	<MenuItem eventKey="1">AI</MenuItem>
-</DropdownButton>
-*/
-
 	let topic_and_log = [];
 	dataSet.log.map((dialogue_quiz, i)=>(
 		topic_and_log.push(

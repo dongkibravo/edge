@@ -9,7 +9,6 @@ import PatternQuiz from './PatternQuiz';
 import DialogueQuiz from './DialogueQuiz';
 
 function detailType(type, set){
-  console.log(set);
   let set_type = null;
   if(type === "Dialogue Practice"){
     set_type = <Dialogue dataSet={set} />

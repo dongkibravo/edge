@@ -61,38 +61,6 @@ const quizWeeks =
 const quizResult =
 [{
 	'timestamp' : '2017-09-09 18:50:20',
-	'data_type'	: 'Vocabulary',
-	'test_type' : 'Quiz',
-	'log'		:
-	[{
-		'question'		:	'사과',
-		'answer'		:	'apple',
-		'user_answer'	: 	'apple',
-		'score'			: 	1
-	},{
-		'question'		:	'에반',
-		'answer'		:	'evan',
-		'user_answer'	:	'james',
-		'score'			: 	1
-	},{
-		'question'		:	'에반',
-		'answer'		:	'evan',
-		'user_answer'	:	'james',
-		'score'			: 	1
-	},{
-		'question'		:	'에반',
-		'answer'		:	'evan',
-		'user_answer'	:	'james',
-		'score'			: 	1
-	},{
-		'question'		:	'에반',
-		'answer'		:	'evan',
-		'user_answer'	:	'james',
-		'score'			: 	1
-	}]
-},
-{
-	'timestamp' : '2017-09-09 18:50:20',
 	'data_type'	: 'Pattern',
 	'test_type' : 'Quiz',
 	'log'		:
@@ -131,6 +99,38 @@ const quizResult =
 			'user_answer'	: 'is there phone',
 			'score'			: 	1
 		}]
+	}]
+},
+{
+	'timestamp' : '2017-09-09 18:50:20',
+	'data_type'	: 'Vocabulary',
+	'test_type' : 'Quiz',
+	'log'		:
+	[{
+		'question'		:	'사과',
+		'answer'		:	'apple',
+		'user_answer'	: 	'apple',
+		'score'			: 	1
+	},{
+		'question'		:	'에반',
+		'answer'		:	'evan',
+		'user_answer'	:	'james',
+		'score'			: 	1
+	},{
+		'question'		:	'에반',
+		'answer'		:	'evan',
+		'user_answer'	:	'james',
+		'score'			: 	1
+	},{
+		'question'		:	'에반',
+		'answer'		:	'evan',
+		'user_answer'	:	'james',
+		'score'			: 	1
+	},{
+		'question'		:	'에반',
+		'answer'		:	'evan',
+		'user_answer'	:	'james',
+		'score'			: 	1
 	}]
 },
 {
@@ -182,28 +182,28 @@ const quizResult =
 			'answer'		:	'Hi. Can you help me find my seat?',
 			'answer_jp'		:	'座席を探するのを手伝ってもらえますか?',
 			'user_answer'	:	'Find my fucking seat',
-			'result'		:	false
+			'score'			: 	1
 		},{
 			'question'		:	'Sure. May I see your boarding pass, please? Your seat is 32A and 32B. Take this aisle and go straight ahead.' ,
 			'question_jp'	:	'かしこまりました。搭乗券をを見せて頂けますか？ お客様の座席が32A,32Bでございます。 この通路から直進です。',
 			'answer'		:	'Thanks. can you help me with this bag?',
 			'answer_jp'		:	'ありがとうございます。ちょっと手伝ってもらえますか？',
 			'user_answer'	:	'My FUCKING bag!!!!',
-			'result'		:	true
+			'score'			: 	1
 		},{
 			'question'		:	'Sure. Would you like to put in the overhead compartment?',
 			'question_jp'	:	'はい。上の棚へ入れますか？',
 			'answer'		:	'Yes, please.',
 			'answer_jp'		:	'はい、お願いします。',
 			'user_answer'	:	'fuck no.',
-			'result'		:	false
+			'score'			: 	1
 		},{
 			'question'		:	'Here. Let me know if you need to take it out.' ,
 			'question_jp'	:	'はい、どうぞ。 もし引き出す必要がございましたら教えて下さい。',
 			'answer'		:	'Thank you so much?',
 			'answer_jp'		:	'ありがとうございます。',
 			'user_answer'	:	'oh my dear fucking god',
-			'result'		:	true
+			'score'			: 	1
 		}]
 	}]
 }];

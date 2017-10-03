@@ -59,3 +59,28 @@
   padding: 50px 0 !important;
   min-height: 380px;
 }
+
+.note_table .note_type{
+  padding: 35px 20px;
+}
+
+.note_table .note_type>div>span.title_1{
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.note_table .note_type>div>span.title_2{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.note_table tbody>tr>td.user_answer{
+  color: red;
+}
+
+tbody>tr>td.index, tbody>tr>td.score{
+  width:5%;
+}
+tbody>tr>td.question, tbody>tr>td.answer, tbody>tr>td.user_answer{
+  width:30%;
+}

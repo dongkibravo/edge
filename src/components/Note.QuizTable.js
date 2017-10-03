@@ -1,6 +1,22 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
 import '../styles/css/pro.quiztable.css';
+import {Vocabulary, Pattern, Dialogue} from './Note.Quizzes';
+
+
+function QuizSelector(quiz){
+  let set_type = null;
+  if(quiz.test_type === 'Quiz'){
+    if(quiz.data_type === "Pattern"){
+      set_type = <Pattern data ={quiz.log} />
+    }else if(quiz.data_type === "Dialogue"){
+      set_type = <Dialogue data ={quiz.log} />
+    }else if(quiz.data_type === "Vocabulary"){
+      set_type = <Vocabulary data={quiz.log} />
+    }
+  }
+  return set_type;
+}
 
 const QuizTable = ({week, day, data}) =>{
   return(
@@ -12,28 +28,7 @@ const QuizTable = ({week, day, data}) =>{
         <span className="note_timestamp">
           Quiz result: {data.timestamp}
         </span>
-        <table>
-          <thead>
-            <tr>
-              <td>No.</td>
-              <td>Question</td>
-              <td>Answer</td>
-              <td>Your Answer</td>
-              <td>발음점수</td>
-            </tr>
-          </thead>
-          <tbody>
-            {data.log.map((qna, index)=>(
-              <tr key={"quiz_"+index}>
-                <td>{index+1}</td>
-                <td>{qna.question}</td>
-                <td>{qna.answer}</td>
-                <td style={{color:'red'}}>{qna.user_answer}</td>
-                <td>{qna.score}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        {QuizSelector(data)}
       </Col>
     </Row>
   );
