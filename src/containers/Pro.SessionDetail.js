@@ -1,5 +1,4 @@
 import React from 'react';
-import {Row, Col} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import {getPersonalTraining,getPtDetail} from '../actions/ProAction';
 import DayInfoTable from '../components/DayInfoTable';

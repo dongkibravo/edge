@@ -13,7 +13,9 @@ class Dashboard extends React.Component{
 
   componentWillMount(){
     console.log("component will mount in dashboard");
-    this.props.getWeeks();
+    if(this.props.weeks.length===0){
+      this.props.getWeeks();
+    }
   }
 
   render(){
@@ -31,6 +33,12 @@ class Dashboard extends React.Component{
   }
 }
 
+const mapStateToProps = state =>{
+  return{
+    weeks: state.dashboard.weeklyStatus
+  };
+};
+
 const mapDispatchToProps = dispatch =>{
   return{
     getWeeks: () => {
@@ -39,4 +47,4 @@ const mapDispatchToProps = dispatch =>{
   };
 };
 
-export default connect(null, mapDispatchToProps)(Dashboard);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

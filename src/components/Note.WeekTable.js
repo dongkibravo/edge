@@ -17,7 +17,7 @@ const WeekTable = (props) =>{
   return (
     <Row className="week_table">
       <Col xs={12} md={6} mdOffset={3} lg={4} lgOffset={4}>
-        <div className="table_overflow">
+        <div className="table_overflow note-table">
           {
             weeks.map((week, index)=>(
             <div key={'week_'+(week.week_num)}

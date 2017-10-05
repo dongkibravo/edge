@@ -21,7 +21,7 @@ const VocaQuiz = ({dataSet}) => {
                 </thead>
                 <tbody>
                   {dataSet.log.map((data, index)=>(
-                    <tr className={(((index+1)%2==0)?'even_line':'odd_line')} key={index}>
+                    <tr className={(((index+1)%2===0)?'even_line':'odd_line')} key={index}>
                       <td>{index+1}</td>
 											<td>{data.question}</td>
 											<td>{data.user_answer}</td>

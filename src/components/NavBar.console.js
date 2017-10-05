@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Row, Col, Image, Button, DropdownButton, MenuItem } from 'react-bootstrap';
+import {Row, Col, Image, DropdownButton, MenuItem } from 'react-bootstrap';
 import '../styles/css/Nav.console.css';
 import edgeLogo from '../static/edgelogo.png';
 import hawaii_logo from '../static/Theme_hawaii.png';
@@ -16,7 +16,7 @@ class NavBar extends React.Component{
             <Col xs={2}>
               <div className="nav_brand">
                 <Link to="/home">
-                  <input className="brand-img" type="image" src={edgeLogo}/>
+                  <input className="brand-img" type="image" src={edgeLogo} alt="EdgeLogo"/>
                 </Link>
               </div>
             </Col>
@@ -25,7 +25,7 @@ class NavBar extends React.Component{
                 <Link to="/dashboard" className="btn btn-default">Dashboard</Link>
                 <DropdownButton title="Pro" id="bg-nested-dropdown" noCaret>
                   <MenuItem eventKey="1" href="/pro">AI</MenuItem>
-                  <MenuItem eventKey="2">Tutor</MenuItem>
+                  <MenuItem eventKey="2" href="/pro/tutor">Tutor</MenuItem>
                   <MenuItem eventKey="3">Online-Eng</MenuItem>
                 </DropdownButton>
               </div>
@@ -35,14 +35,20 @@ class NavBar extends React.Component{
                 <button className="btn-upgrade">Upgrade to Pro</button>
                 <div className="dropdown_section">
                   <div className="dropdown_contents">
-                    <DropdownButton id="contents_dropdown" noCaret title={<img src={hawaii_logo}></img>}>
+                    <DropdownButton id="contents_dropdown" noCaret
+                      title={<img src={hawaii_logo} alt="Hawaii_Logo" />}>
                       <MenuItem disabled>학습 중</MenuItem>
-                      <MenuItem eventKey="4"><Image src={hawaii_logo} /></MenuItem>
-                      <MenuItem eventKey="5"><Image src={olympic_logo} /></MenuItem>
+                      <MenuItem eventKey="4">
+                        <Image src={hawaii_logo} /><span>Hawaii</span>
+                      </MenuItem>
+                      <MenuItem eventKey="5">
+                        <Image src={olympic_logo} /><span>Olympic</span>
+                      </MenuItem>
                     </DropdownButton>
                   </div>
                   <div className="dropdown_contents">
-                    <DropdownButton id="setting_dropdown" noCaret title={<img src={setting_icon}/>}>
+                    <DropdownButton id="setting_dropdown" noCaret
+                      title={<img src={setting_icon} alt="setting"/>}>
                       <MenuItem disabled>Dong Park</MenuItem>
                       <MenuItem eventKey="6" href="/profile">My Profile</MenuItem>
                       <MenuItem eventKey="7">Help/Community</MenuItem>

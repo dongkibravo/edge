@@ -1,10 +1,10 @@
 import React from 'react';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import {Grid} from 'react-bootstrap';
-import ProNav from '../components/pro.nav';
 import Training from './Pro.Training';
 import WrongNotes from './Pro.WrongNote';
 import Analysis from './Pro.Analysis';
+import Tutor from './Pro.Tutor';
 import SessionDetail from './Pro.SessionDetail';
 import '../styles/css/pro.notes.css';
 
@@ -18,7 +18,6 @@ class Pro extends React.Component{
   }
 
   render(){
-    console.log("pro was called");
     const Page = () => (
       <Switch>
         <Route exact path={'/pro'}
@@ -28,6 +27,7 @@ class Pro extends React.Component{
           component={SessionDetail} />
         <Route exact path={'/pro/wrong-notes'} component={WrongNotes} />
         <Route exact path={'/pro/analysis'} component={Analysis} />
+        <Route exact path={'/pro/tutor'} component={Tutor} />
       </Switch>
     );
 

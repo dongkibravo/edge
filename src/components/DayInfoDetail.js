@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {Row, Col} from 'react-bootstrap';
 import Dialogue from './Dialogue';
 import Pattern from './Pattern';

@@ -1,6 +1,6 @@
 const PT =
 [{
-'session_num'				:		1,
+	'session_num'				:		1,
 	'materials'	:		[{'data_type':'Pattern','test_type':'Practice'},
 									 {'data_type':'Dialogue','test_type':'Practice'}],
 	'status'		:		'complete'
@@ -161,6 +161,28 @@ const quizWeeks =
 }];
 
 
+// filter the date in order
+const questionList =
+[{
+	date: '2017-09-23',
+	question: '친구한테 실수를 해서 사과를 하고싶은데 어떻게하나요',
+	answer: null
+},{
+	date: '2017-09-22',
+	question : '친구한테 데이트 신청하고 싶은데 어떻게할까요?',
+	answer	: '그럴땐 can i take you out for a dinner 또는 would you like to go on a date with me tomorrow night?'
+},{
+	date: '2017-09-21',
+	question: '하와이에 가장 핫한 클럽은 어딘가요?',
+	answer: '구글에게 물어보세요'
+},{
+	date: '2017-09-20',
+	question: '우헤헤히헤히우후후후헤',
+	answer: '쿠흐하쿠후쿠쿠루후후쿠쿠'
+}];
+
+
+
 // weekly
 // filter the quiz log to get only wrong questions
 const quizResult =
@@ -313,20 +335,26 @@ const quizResult =
 	}]
 }];
 
-const quizScore ={
-  vocaScore : {
-    question_num : [ 10, 8, 9, 11, 7 ],
+const quizScore =
+[{
+	quiz_type : 'Vocabulary',
+	score			: {
+		question_num : [ 10, 8, 9, 11, 7 ],
     correct_num : [ 10, 7, 7, 8, 7]
-  },
-  patternScore : {
-    question_num : [ 5, 6, 7, 6, 7 ],
+	}
+},{
+	quiz_type : 'Pattern',
+	score			: {
+		question_num : [ 5, 6, 7, 6, 7 ],
     correct_num : [ 3, 6, 5, 6, 4]
-  },
-  dialogueScore : {
-    question_num : [ 10, 9, 11, 11, 9 ],
-    correct_num : [ 6, 6, 10, 9, 7]
-  }
-};
+	}
+},{
+	quiz_type : 'Dialogue',
+	score			: {
+		question_num : [ 10, 9, 11, 11, 9 ],
+		correct_num : [ 6, 6, 10, 9, 7]
+	}
+}];
 
 /*
 // option 1
@@ -404,7 +432,22 @@ export function getQuizScore(){
     // let jwtToken = state.auth.jwtToken;
     dispatch({
       type: "GET_SCORE_FULFILLED",
-      paylaod: quizScore
+      payload: quizScore
     });
   };
+}
+
+export function getTutorQuestion(){
+	return(dispatch, getState)=>{
+		// const state = getState();
+		// let jwtToken = state.auth.jwtToken;
+		dispatch({
+			type: "GET_TUTOR_QUESTION_FULFILLED",
+			payload: questionList
+		});
+	};
+}
+
+export function postTutorQuestion(question){
+	// axious post and then just reply right back to container
 }

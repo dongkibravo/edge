@@ -1,10 +1,11 @@
 const initialState={
-  ptSessions  : null,
-  quizResult        : [],
-  quizScore         : [],
-  quizWeeks         : [],
-  sessionDetail         : [],
-  status    : false
+  ptSessions    : null,
+  quizResult    : [],
+  quizScore     : null,
+  quizWeeks     : [],
+  sessionDetail : [],
+  tutorList     : [],
+  status        : false
 };
 
 function proReducer(state=initialState, action){
@@ -28,6 +29,7 @@ function proReducer(state=initialState, action){
     }
 
     case "GET_SCORE_FULFILLED":{
+      console.log(action.payload);
       return Object.assign({}, state, {
         quizScore: action.payload
       });
@@ -36,6 +38,12 @@ function proReducer(state=initialState, action){
     case "GET_PT_DETAUL_FULFILLED":{
       return Object.assign({}, state, {
         sessionDetail: action.payload
+      });
+    }
+
+    case "GET_TUTOR_QUESTION_FULFILLED":{
+      return Object.assign({}, state, {
+        tutorList: action.payload
       });
     }
 

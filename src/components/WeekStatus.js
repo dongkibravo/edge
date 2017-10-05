@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {Row, Col, Image} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import StatusChart from '../components/charts/StatusChart';
@@ -14,20 +14,22 @@ function dayImage(status, day, week) {
   switch(status){
     case "complete":{
       return <Link to={linkUrl}><input className="mini_circle complete img-circle"
-        type="image" src={complete} /></Link>;
+        type="image" src={complete} alt="complete"/></Link>;
     }
     case "ongoing":{
       return <Link to={linkUrl}><input className="mini_circle ongoing img-circle"
-        type="image" src={ongoing} /></Link>;
+        type="image" src={ongoing} alt="ongoing"/></Link>;
     }
     case "locked":{
       return <Image className="mini_circle lock img-circle"
-        src={basic_lock} circle />;
+        src={basic_lock} alt="basic_lock" circle />;
     }
     case "pro_locked":{
       return <Image className="mini_circle lock img-circle pro"
-        src={pro_lock} circle />;
+        src={pro_lock} alt="pro_lock" circle />;
     }
+    default:
+      return;
   }
 }
 
@@ -53,6 +55,10 @@ const WeekStatus = (props) => {
       </Col>
     </Row>
   );
+};
+
+WeekStatus.propTypes={
+
 };
 
 export default WeekStatus;

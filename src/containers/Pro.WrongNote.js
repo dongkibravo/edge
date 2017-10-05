@@ -5,6 +5,7 @@ import '../styles/css/pro.notes.css';
 import WeekTable from '../components/Note.WeekTable';
 import QuizTable from '../components/Note.QuizTable';
 import ProNav from '../components/pro.nav';
+import Description from '../components/Pro.Description';
 import { getQuizResult, getQuizWeeks } from '../actions/ProAction';
 
 class WrongNotes extends React.Component{
@@ -12,14 +13,15 @@ class WrongNotes extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      status : [],
+      status : [],              // for closing and opening dropdown in table
       week : null,
       displayedQuiz : null,
       selectedDiv : null,
       day : null,
+      prevClickedWeek : null      // feel like there would be better way to acheive this
     };
   }
-  
+
   componentWillMount(){
     if(this.props.weeks.length === 0){
       this.props.getQuizWeeks();
@@ -35,28 +37,29 @@ class WrongNotes extends React.Component{
   }
 
   show(index, event){
-    let status = this.state.status;
+    let {status, week, prevClickedWeek} = this.state;
 
     // the week table has been already clicked
-    if(this.state.week !== null){
-      let week = this.state.week;
+    if(week !== null){
       status[week] = false;
       if(week !== index){  // the clicked week is not same as previously clicked week
         this.props.getQuizResult(index);
         status[index] = true;
         week = index;
-
-      }else{  // the clicked week si same as previously clicked week
+      } else{  // the clicked week is same as previously clicked week
         week = null;
+        prevClickedWeek = index;
       }
       this.setState({
         status,
         week,
-        selectedDiv: null
+        selectedDiv: null,
+        prevClickedWeek
       });
-    }else{  // week table has not been clicked yet
-      this.props.getQuizResult(index);
-
+    } else{  // week table has not been clicked yet
+      if(prevClickedWeek !== index){
+        this.props.getQuizResult(index);
+      }
       status[index] = true;
       this.setState({
         status,
@@ -81,24 +84,20 @@ class WrongNotes extends React.Component{
   render(){
     return(
       <div>
-        <ProNav />
-        <Row className="description">
-          <Col xs={12}>
-            <span className="main">Wrong Answer Notes</span>
-            <span className="sub">Wrong Answer Notes를 통해 Day 별 퀴즈 활동에서 틀린 내용들을 볼 수 있습니다.</span>
-          </Col>
-        </Row>
+        <ProNav type="AI" />
+        <Description type="WrongNotes" />
         <WeekTable weeks={this.props.weeks} status={this.state.status}
          show={this.show.bind(this)} onClick={this.quizDayClicked.bind(this)} />
-         <Row className="note_table_row text-left">
-           <Col className="note_table" xs={12} md={10} mdOffset={1}>
-             {this.state.displayedQuiz?
-               <QuizTable data={this.state.displayedQuiz}
-                 day={this.state.day} week={this.state.week} />
+        <Row className="note_table_row text-left">
+          <Col className="note_table" xs={12} md={10} mdOffset={1}>
+            {this.state.displayedQuiz?
+              <QuizTable data={this.state.displayedQuiz}
+                day={this.state.day} week={this.state.week} />
                : null}
-           </Col>
-         </Row>
+          </Col>
+        </Row>
       </div>
+
     );
   }
 }

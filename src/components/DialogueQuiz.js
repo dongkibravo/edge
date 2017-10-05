@@ -1,9 +1,9 @@
 import React from 'react';
-import {Row, Col, DropdownButton, MenuItem } from 'react-bootstrap';
+import {Row, Col } from 'react-bootstrap';
 
 
 function clickclick(){
-	let id = 'a_'+this
+	let id = 'a_'+this;
 	document.getElementById(id).className = 'active';
 	console.log(
 		"click!  "
@@ -11,8 +11,9 @@ function clickclick(){
 }
 
 
-const DialogueQuiz = ({dataSet}) => {
+const DialogueQuiz = (props) => {
 	let topic_and_log = [];
+	let {dataSet} = props;
 	dataSet.log.map((dialogue_quiz, i)=>(
 		topic_and_log.push(
 			<tr className="dialogue_topic" key={"dialogue_quiz_topic_"+i}>
@@ -38,11 +39,11 @@ const DialogueQuiz = ({dataSet}) => {
 							  </div>
 							</div>
 						</td>
-						{((quiz_log.result===true)
-							?<td>O</td>:<td style={{color:'red'}}>X</td>)}
+						{((quiz_log.result===true)?
+							<td>O</td>:<td style={{color:'red'}}>X</td>)}
 					</tr>)
 			))
-	))
+	));
 
   return(
     <Row>
@@ -69,7 +70,7 @@ const DialogueQuiz = ({dataSet}) => {
         </div>
       </Col>
     </Row>
-  )
+  );
 };
 
 export default DialogueQuiz;

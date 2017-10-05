@@ -15,12 +15,19 @@
   }
 }
 
-.title{
+div.title{
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 500;
   color: #ffffff;
   padding:35px 0;
+}
+
+div.title.AI{
   background-color: #675df7;
+}
+
+div.title.Tutor{
+  background-color: #e96379;
 }
 
 .description span{

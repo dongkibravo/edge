@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-import { getWeeks } from '../actions/DashboardAction';
 import WeekTable from '../components/WeekTable';
 
 class WeekContainer extends React.Component{
@@ -14,10 +12,6 @@ class WeekContainer extends React.Component{
       titles: [],
     };
   }
-  // componentWillMount(){
-  //   console.log("Component Will Mount in Week");
-  //   this.props.getWeeks();
-  // }
 
   componentDidMount(){
     const { titles, weeklyStatus } = this.props;

@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {getPersonalTraining} from '../actions/ProAction';
 import TrainingTables from '../components/Pro.Training.Tables';
 import ProNav from '../components/pro.nav';
+import Description from '../components/Pro.Description';
 import '../styles/css/Pro.Training.css';
 
 class Training extends React.Component{
@@ -37,20 +38,13 @@ class Training extends React.Component{
   render(){
     return(
       <div>
-        <ProNav />
-        <Row className="description">
-          <Col xs={12}>
-            <span className="main">Personal Training</span>
-            <span className="sub">
-              Personal weakness를 분석하고 트레이닝 하는 세션을 자동으로 생성해줌
-            </span>
-          </Col>
-        </Row>
-         <Row className="training_table_row">
+        <ProNav type="AI" />
+        <Description type="Training" />
+        <Row className="training_table_row">
            <Col xs={12} md={10} mdOffset={1}>
              <TrainingTables data={this.state.ptSessions} />
            </Col>
-         </Row>
+        </Row>
       </div>
     );
   }

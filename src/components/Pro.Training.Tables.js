@@ -1,27 +1,29 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {Row, Col, Image} from 'react-bootstrap';
+import {Image} from 'react-bootstrap';
 import basic_lock from '../static/pt_lock.svg';
 import ongoing from '../static/pt_ongoing.svg';
 import complete from '../static/pt_complete.svg';
 
 function sessionImage(session) {
-  const {session_num, materials, status} = session;
+  const {session_num, status} = session;
 
   let linkUrl = '/pro/personal-training/'+session_num;
   switch(status){
     case "complete":{
       return <Link to={linkUrl}><input className="pt_circle complete img-circle"
-        type="image" src={complete} /></Link>;
+        type="image" src={complete} alt="complete" /></Link>;
     }
     case "ongoing":{
       return <Link to={linkUrl}><input className="pt_circle ongoing img-circle"
-        type="image" src={ongoing} /></Link>;
+        type="image" src={ongoing} alt="ongoing" /></Link>;
     }
     case "locked":{
       return <Image className="pt_circle lock img-circle"
-        src={basic_lock} circle />;
+        src={basic_lock} alt="lock" circle />;
     }
+    default:
+    return;
   }
 }
 

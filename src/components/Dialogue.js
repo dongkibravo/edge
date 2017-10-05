@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {Row, Col} from 'react-bootstrap';
 
 function createTable(data){
@@ -28,7 +28,8 @@ function createTable(data){
   );
 }
 
-const Dialogue = ({dataSet})=>{
+const Dialogue = (props)=>{
+  let {dataSet} = props;
   return(
     <Row>
       <Col xs={12}>

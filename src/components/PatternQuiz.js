@@ -3,8 +3,8 @@ import {Row, Col } from 'react-bootstrap';
 
 //	Next update - categorize the patterns and show with variables
 
-const PatternQuiz = ({dataSet}) => {
-
+const PatternQuiz = (props) => {
+	let {dataSet} =props;
 	let title_and_log = [];
 	dataSet.log.map((pattern_quiz, i)=>(
 		title_and_log.push(
@@ -14,19 +14,19 @@ const PatternQuiz = ({dataSet}) => {
 					<span className="title_2"> {pattern_quiz.pattern} / {pattern_quiz.pattern_jp}</span>
 				</td>
 			</tr>),
-			pattern_quiz.log.map((quiz_log, j)=>(
-				title_and_log.push(
-					<tr className={'log_line '+(((j+1)%2===0)?'even_line':'odd_line')}
-						key={"patter_quiz_log_"+i+'_'+j}>
-						<td>{j+1}</td>
-						<td>{quiz_log.question}</td>
-						<td>{quiz_log.user_answer}</td>
-						<td>{quiz_log.answer}</td>
-						{((quiz_log.result===true)
-							?<td>O</td>:<td style={{color:'red'}}>X</td>)}
-					</tr>)
-			))
-	))
+		pattern_quiz.log.map((quiz_log, j)=>(
+			title_and_log.push(
+				<tr className={'log_line '+(((j+1)%2===0)?'even_line':'odd_line')}
+					key={"patter_quiz_log_"+i+'_'+j}>
+					<td>{j+1}</td>
+					<td>{quiz_log.question}</td>
+					<td>{quiz_log.user_answer}</td>
+					<td>{quiz_log.answer}</td>
+					{((quiz_log.result===true)?
+						<td>O</td>:<td style={{color:'red'}}>X</td>)}
+				</tr>)
+		))
+	));
 
   return(
     <Row>

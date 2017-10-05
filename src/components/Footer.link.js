@@ -11,16 +11,28 @@ class FooterLink extends Component {
       <div className="col-md-4 col-xs-12 text-center">
         <ul className="social_box">
           <li>
-            <a target="_blank" href="https://www.facebook.com/musioAKA/?ref=ts&fref=ts"><img src={Rogo1} alt="goto facebook" /></a>
+            <a target="_blank" rel="noopener noreferrer"
+              href="https://www.facebook.com/musioAKA/?ref=ts&fref=ts">
+              <img src={Rogo1} alt="goto facebook" />
+            </a>
           </li>
           <li>
-            <a target="_blank" href="https://www.instagram.com/musio_aka/"><img src={Rogo2} alt="goto instagram" /></a>
+            <a target="_blank" rel="noopener noreferrer"
+             href="https://www.instagram.com/musio_aka/">
+             <img src={Rogo2} alt="goto instagram" />
+            </a>
           </li>
           <li>
-            <a target="_blank" href="https://twitter.com/Musio_AKA"><img src={Rogo3} alt="goto twitter" /></a>
+            <a target="_blank" rel="noopener noreferrer"
+              href="https://twitter.com/Musio_AKA">
+              <img src={Rogo3} alt="goto twitter" />
+            </a>
           </li>
           <li>
-            <a target="_blank" href="https://www.youtube.com/channel/UCHXmMzxX7cMVPaLihhcTGLA"><img src={Rogo4} alt="goto channel" /></a>
+            <a target="_blank" rel="noopener noreferrer"
+             href="https://www.youtube.com/channel/UCHXmMzxX7cMVPaLihhcTGLA">
+             <img src={Rogo4} alt="goto channel" />
+           </a>
           </li>
         </ul>
       </div>

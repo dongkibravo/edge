@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import {Row, Col} from 'react-bootstrap';
 import DayInfoDetail from './DayInfoDetail';
 
@@ -45,6 +45,10 @@ const DayInfoTable = (props)=>{
       </Col>
     </Row>
   );
+};
+
+DayInfoTable.propTypes={
+
 };
 
 export default DayInfoTable;
