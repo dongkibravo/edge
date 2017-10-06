@@ -53,25 +53,26 @@ div.question-table>div.dropdown-container > div.dropdown-display {
   border: solid 1px #e6e6e6;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
+  border-collapse: collapse;
 }
 
-div.question-table>div.dropdown-container > div.dropdown-display > * {
-  float: left;
-  display: inline-block;
-  vertical-align: middle;
-}
+
 div.question-table>div.dropdown-container > div.dropdown-display > span {
   display: inline-block;
   position: relative;
   width: auto;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  padding-right: 34px;
-  padding-left: 24px;
+  padding: 10px 25px;
+  font-size: 16px;
 }
+
+
 div.question-table>div.dropdown-container > div.dropdown-display>img{
   width:35px;
 }
+
+
 div.question-table>div.dropdown-container > div.dropdown-display > i {
   position: relative;
   width: 14px;
@@ -81,6 +82,9 @@ div.question-table>div.dropdown-container > div.dropdown-display > i {
   padding-right: 10px;
   text-align: right;
 }
+
+
+
 div.question-table>div.dropdown-container > div.dropdown-list {
   float: left;
   position: relative;
@@ -102,6 +106,17 @@ div.question-table>div.dropdown-container > div.dropdown-list {
   transition: transform ease 500ms;
 }
 
+div.question-table>div.dropdown-container > div.dropdown-list>div>div>span{
+  padding: 10px 25px;
+  font-size: 16px;
+  color: #333333;
+}
+
+div.question-table>div.dropdown-container > div.dropdown-list>div>div>span.unanswered{
+  color: #cccccc;
+}
+
+
 div.question-table>div.dropdown-container.show > div.dropdown-list > div {
   float: left;
   width: 100%;
@@ -110,7 +125,9 @@ div.question-table>div.dropdown-container.show > div.dropdown-list > div {
   border: solid 1px #e6e6e6;
   border-top: none;
   padding: 17px;
+  background-color: #f6f7fb;
 }
+
 
 div.question-table>div.dropdown-container > div.dropdown-list>div>*{
   height: 0;

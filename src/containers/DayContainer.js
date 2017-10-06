@@ -38,7 +38,7 @@ class DayContainer extends React.Component{
 }
 
 DayContainer.propTypes={
-  titles : PropTypes.string
+  titles : PropTypes.array
 };
 
 const mapDispatchToProps = dispatch=>{

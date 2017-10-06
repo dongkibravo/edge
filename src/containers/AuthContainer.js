@@ -6,6 +6,7 @@ import ContentCategory from './MainContainer';
 import {Root} from './Root';
 import Dashboard from './Dashboard';
 import Pro from './Pro.Container';
+import Profile from '../components/Profile';
 
 class RootRouterWrapper extends React.Component{
 
@@ -38,6 +39,7 @@ class RootRouterWrapper extends React.Component{
               <Switch>
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/pro" component={Pro} />
+                <Route path="/profile" component={Profile} />
               </Switch>
             </Root>
           </Switch>

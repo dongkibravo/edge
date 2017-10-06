@@ -1,0 +1,20 @@
+
+
+div.analysisChart{
+  padding: 30px 0;
+}
+
+div.analysisChart>div{
+  background-color: #f6f7fb;
+}
+
+div.chart_wrapper{
+  padding: 10px 15px;
+}
+
+
+div.analysisChart>div>div.text-left{
+  margin: 10px 30px;
+  font-size: 18px;
+  font-weight: 700;
+}

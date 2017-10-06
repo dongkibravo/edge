@@ -70,3 +70,23 @@ button{
   -webkit-box-shadow:none;
   background-color: #f2f2f2;
 }
+div.dropdown_contents>div>ul{
+  width: 140px;
+  min-width: 120px;
+}
+div.dropdown_contents>div>ul>li.disabled.selected{
+  background-color: #e8e8e8;
+}
+div.dropdown_contents>div>ul>li.disabled>a:hover{
+  cursor: default !important;
+}
+div.dropdown_contents>div>ul>li>a{
+  padding: 5px 10px;
+}
+div.dropdown_contents>div>ul>li>a>img{
+  width:30px;
+}
+div.dropdown_contents>div>ul>li>a>span{
+  margin-left: 10px;
+  font-size: 14px;
+}

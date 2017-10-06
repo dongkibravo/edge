@@ -6,6 +6,7 @@ import {getQuizScore} from '../actions/ProAction';
 import ProNav from '../components/pro.nav';
 import AnalysisChart from '../components/charts/AnalysisChart';
 import Description from '../components/Pro.Description';
+import '../styles/css/pro.analysis.css';
 
 class Analysis extends React.Component{
 

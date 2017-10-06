@@ -3,7 +3,6 @@ import {Line} from 'react-chartjs-2';
 import {Row, Col} from 'react-bootstrap';
 /*
 import {Line} from 'react-chartjs-2';
-
 const data = {
   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
   datasets: [
@@ -30,7 +29,6 @@ const data = {
     }
   ]
 };
-
 var myPieChart = new Chart(ctx, {
     type: 'pie',
     data: data,
@@ -39,7 +37,6 @@ var myPieChart = new Chart(ctx, {
             custom: function(tooltipModel) {
                 // Tooltip Element
                 var tooltipEl = document.getElementById('chartjs-tooltip');
-
                 // Create element on first render
                 if (!tooltipEl) {
                     tooltipEl = document.createElement('div');
@@ -47,13 +44,11 @@ var myPieChart = new Chart(ctx, {
                     tooltipEl.innerHTML = "<table></table>"
                     document.body.appendChild(tooltipEl);
                 }
-
                 // Hide if no tooltip
                 if (tooltipModel.opacity === 0) {
                     tooltipEl.style.opacity = 0;
                     return;
                 }
-
                 // Set caret Position
                 tooltipEl.classList.remove('above', 'below', 'no-transform');
                 if (tooltipModel.yAlign) {
@@ -61,23 +56,18 @@ var myPieChart = new Chart(ctx, {
                 } else {
                     tooltipEl.classList.add('no-transform');
                 }
-
                 function getBody(bodyItem) {
                     return bodyItem.lines;
                 }
-
                 // Set Text
                 if (tooltipModel.body) {
                     var titleLines = tooltipModel.title || [];
                     var bodyLines = tooltipModel.body.map(getBody);
-
                     var innerHtml = '<thead>';
-
                     titleLines.forEach(function(title) {
                         innerHtml += '<tr><th>' + title + '</th></tr>';
                     });
                     innerHtml += '</thead><tbody>';
-
                     bodyLines.forEach(function(body, i) {
                         var colors = tooltipModel.labelColors[i];
                         var style = 'background:' + colors.backgroundColor;
@@ -87,14 +77,11 @@ var myPieChart = new Chart(ctx, {
                         innerHtml += '<tr><td>' + span + body + '</td></tr>';
                     });
                     innerHtml += '</tbody>';
-
                     var tableRoot = tooltipEl.querySelector('table');
                     tableRoot.innerHTML = innerHtml;
                 }
-
                 // `this` will be the overall tooltip
                 var position = this._chart.canvas.getBoundingClientRect();
-
                 // Display, position, and set styles for font
                 tooltipEl.style.opacity = 1;
                 tooltipEl.style.left = position.left + tooltipModel.caretX + 'px';
@@ -108,7 +95,6 @@ var myPieChart = new Chart(ctx, {
     }
 });
 */
-
 
 const AnalysisChart = (props) =>{
   let {question_num, correct_num} = props.data.score;
@@ -124,14 +110,19 @@ const AnalysisChart = (props) =>{
   let data = {
     labels: labels,
     datasets :[{
-      label: 'test',
+      label: 'Your Scores',
       data: scores,
       fill: false,
+      lineTension: 0.3,
+      backgroundColor: '#6be1cc',
       borderColor: '#6be1cc',
     }],
   };
 
   let options ={
+    legend: {
+      display: true
+    },
     scales:{
       yAxes: [{
         ticks: {
@@ -142,25 +133,43 @@ const AnalysisChart = (props) =>{
         }
       }]
     },
-    maintainAspectRatio: false
+    //https://stackoverflow.com/questions/34720530/chart-js-v2-add-prefix-or-suffix-to-tooltip-label
+    tooltips:{
+      custom: function(tooltip) {
+        if (!tooltip) return;
+        // disable displaying the color box;
+        tooltip.displayColors = false;
+      },
+      callbacks: {
+        title: function (tooltipItem, data){ return data.labels[tooltipItem[0].index];},
+        label: function (tooltipItem, data){
+          var firstLabel = '  문제 수: '+ question_num[tooltipItem.index];
+          var secondLabel = '  정답 수: '+ correct_num[tooltipItem.index];
+          var tooltip = new Array(firstLabel, secondLabel);
+          return tooltip;
+        }
+      }
+    },
+    maintainAspectRatio: false,
   };
 
   return(
-    <div>
-      <Row className="text-left">
+      <Row className="analysisChart">
         <Col xs={12}>
-          <span>{props.data.quiz_type}</span>
+          <Row className="text-left">
+            <Col xs={12}>
+              <span>{props.data.quiz_type}</span>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <div className="chart_wrapper">
+                <Line data={data} options={options} height={300}/>
+              </div>
+            </Col>
+          </Row>
         </Col>
       </Row>
-      <Row>
-        <Col xs={12}>
-          <div className="chart_wrapper">
-            <Line data={data} options={options} height={300}/>
-          </div>
-        </Col>
-      </Row>
-    </div>
-
   );
 };
 
