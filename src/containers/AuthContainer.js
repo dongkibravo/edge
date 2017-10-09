@@ -28,6 +28,8 @@ class RootRouterWrapper extends React.Component{
 
     }
   }
+  // {/* <Route exact path="/forum" render={()=><Redirect to="/forum/1"/>} />
+  // <Route path="/forum/:page" component={Forum} />*/}
 
   render(){
     const { jwt } = this.props;
@@ -42,10 +44,8 @@ class RootRouterWrapper extends React.Component{
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/pro" component={Pro} />
                 <Route path="/profile" component={Profile} />
-                <Route exact path="/help" render={()=><Redirect to="/help/1"/>} />
-                <Route path="/help/:page" component={Help} />
-                <Route exact path="/forum" render={()=><Redirect to="/forum/1"/>} />
-                <Route path="/forum/:page" component={Forum} />
+                <Route path="/help" component={Help} />
+                <Route path="/forum" component={Forum} />
               </Switch>
             </Root>
           </Switch>

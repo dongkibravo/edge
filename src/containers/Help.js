@@ -1,7 +1,7 @@
 import React from 'react';
 import {Grid, Row, Col, Accordion, Panel} from 'react-bootstrap';
 import {connect} from 'react-redux';
-import '../styles/css/setting.help.css';
+import '../styles/css/support.help.css';
 // import { Accordion, AccordionItem } from 'react-sanfona';
 import { getFaq } from '../actions/SupportAction';
 
@@ -13,41 +13,38 @@ class Help extends React.Component{
     this.state={
       faqLength: null,
       faqList : [],
-      currentPage : null
+      currentPage : 1
     };
   }
 
   componentWillMount(){
-    let {page} = this.props.match.params;
-    if(this.props.faq.length === 0){
-      this.props.getFaq(page);
-      this.setState({
-        currentPage: page
-      });
+    let {faqList, faqLength, getFaq} = this.props;
+
+    if(faqList.length === 0){
+      getFaq(this.state.currentPage);
     }else{
       this.setState({
-        faqLength: this.props.faqLength,
-        faqList: this.props.faq,
-        currentPage: page
+        faqLength: faqLength,
+        faqList: faqList,
       });
     }
   }
 
   componentWillReceiveProps(nextProps){
     console.log("will receive props");
-    if(this.state.currentPage !== nextProps.match.params.page){
-      console.log("different page called and dispatching get faq");
-      this.props.getFaq(nextProps.match.params.page);
-      this.setState({
-        currentPage: nextProps.match.params.page
-      });
-    }
+    // if(this.state.currentPage !== nextProps.match.params.page){
+    //   console.log("different page called and dispatching get faq");
+    //   this.props.getFaq(nextProps.match.params.page);
+    //   this.setState({
+    //     currentPage: nextProps.match.params.page
+    //   });
+    // }
 
-    if(this.props.faq !== nextProps.faq){
+    if(this.props.faqList !== nextProps.faqList){
       console.log("new faq arrived and calling setstate");
       this.setState({
         faqLength : nextProps.faqLength,
-        faqList : nextProps.faq
+        faqList : nextProps.faqList
       });
     }
   }
@@ -95,7 +92,7 @@ const mapDispatchToProps = dispatch =>{
 
 const mapStateToProps = (state, props) =>{
   return{
-    faq : state.support.faq,
+    faqList : state.support.faq,
     faqLength : state.support.faqLength
   };
 };
