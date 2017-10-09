@@ -1,5 +1,6 @@
 import React from 'react';
 import {Row, Col, Grid} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 const Description =()=>{
   return(
@@ -16,20 +17,55 @@ const Description =()=>{
   );
 };
 
-const NewPost = props =>{
-  return(
-    <Grid className="setting-page">
-      <Description />
-      <Row className="post-container">
-        <Col xs={12} sm={8} smOffset={2}>
-          <form>
-            <input className="" type="text" placeholder="제목" />
-            <textarea type="textarea" placeholder="내용" />
-          </form>
-        </Col>
-      </Row>
-    </Grid>
-  );
-};
 
-export default NewPost;
+class ForumThread extends React.Component{
+
+  constructor(){
+    super();
+    this.state={
+      title: '',
+      content: ''
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    console.log("in handle chage");
+    console.log(this.state);
+    this.setState({[event.target.name]:event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log(this.state);
+    this.props.history.push('/forum');
+  }
+
+  render(){
+    return(
+      <Grid className="setting-page">
+        <Description />
+        <Row className="post-container">
+          <Col xs={12} sm={8} smOffset={2}>
+            <form>
+              <input name="title" type="text" placeholder="제목"
+                onChange={this.handleChange} />
+              <textarea type="textarea" rows={16} name="content"
+                placeholder="내용" onChange={this.handleChange} />
+            </form>
+          </Col>
+        </Row>
+        <Row className="post-buttons">
+          <Col xs={4} smOffset={2}>
+            <button type="submit" id="post-btn" onClick={this.handleSubmit}>
+              Submit</button>
+            <Link className="btn" type="Cancel" to="/forum" id="cancel-btn">Cancel</Link>
+          </Col>
+        </Row>
+      </Grid>
+    );
+  }
+}
+
+export default ForumThread;

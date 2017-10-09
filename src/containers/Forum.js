@@ -3,7 +3,7 @@ import {getForum} from '../actions/SupportAction';
 import {connect} from 'react-redux';
 import '../styles/css/support.forum.css';
 import ForumContainer from '../components/Support.Forum';
-import NewPost from '../components/Forum.Post';
+import ForumThread from '../components/Forum.Post';
 import {Route, Switch} from 'react-router-dom';
 
 class Forum extends React.Component{
@@ -60,11 +60,9 @@ class Forum extends React.Component{
           render={()=>(<ForumContainer forumList={forumList} currentPage={currentPage}
                       handleSelect={this.handleSelect.bind(this)}
                       onClickHandler={this.onClickHandler.bind(this)}
-                      />)} />
-        <Route exact path="/forum/new-post" component={NewPost} />
+                      />)}/>
+        <Route exact path="/forum/new-post" component={ForumThread} />
       </Switch>
-
-
     );
   }
 }

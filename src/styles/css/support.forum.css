@@ -145,8 +145,35 @@ div.setting-page>div.post-container>div>form>input{
   padding:10px;
   border: none;
   margin-bottom: 50px;
+  padding: 15px 25px;
 }
 div.setting-page>div.post-container>div>form>textarea{
   border: 1px solid black;
   overflow: auto;
+  padding: 25px;
+}
+
+div.setting-page>div.post-buttons{
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+div.setting-page>div.post-buttons>div>*{
+  width: auto;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0 7px;
+  min-width: 100px;
+}
+
+div.setting-page>div.post-buttons>div>a#cancel-btn{
+  background-color: rgb(240, 240, 240);
+  color: rgb(122, 122, 122);
+  padding: 9px 12px;
+
+}
+div.setting-page>div.post-buttons>div>button#post-btn{
+  background-color: #6be1cc;
+  color: #fff;
 }
