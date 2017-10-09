@@ -4,7 +4,7 @@ import { Grid } from 'react-bootstrap';
 
 export const Root = (props) => {
   return(
-    <Grid>
+    <Grid style={{height: "100%"}}>
       <Navbar />
       {props.children}
     </Grid>

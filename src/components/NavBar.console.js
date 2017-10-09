@@ -51,8 +51,8 @@ class NavBar extends React.Component{
                       title={<img src={setting_icon} alt="setting"/>}>
                       <MenuItem disabled>Dong Park</MenuItem>
                       <MenuItem eventKey="6" href="/profile">My Profile</MenuItem>
-                      <MenuItem eventKey="7">Help</MenuItem>
-                      <MenuItem eventKey="8">Forum</MenuItem>
+                      <MenuItem eventKey="7" href='/help'>Help</MenuItem>
+                      <MenuItem eventKey="8" href='/forum'>Forum</MenuItem>
                       <MenuItem divider />
                       <MenuItem eventKey="9">Log Out</MenuItem>
                     </DropdownButton>

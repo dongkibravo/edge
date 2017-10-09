@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setRedirectUrl } from '../actions/AuthAction';
 import ContentCategory from './MainContainer';
@@ -7,6 +7,8 @@ import {Root} from './Root';
 import Dashboard from './Dashboard';
 import Pro from './Pro.Container';
 import Profile from '../components/Profile';
+import Forum from './Forum';
+import Help from './Help';
 
 class RootRouterWrapper extends React.Component{
 
@@ -32,7 +34,7 @@ class RootRouterWrapper extends React.Component{
 
     if(jwt){
       return(
-        <div id="RootRouterWrapper">
+        <div id="RootRouterWrapper" style={{height:"100%"}}>
           <Switch>
             <Route path="/home" component={ContentCategory} />
             <Root>
@@ -40,6 +42,10 @@ class RootRouterWrapper extends React.Component{
                 <Route path="/dashboard" component={Dashboard} />
                 <Route path="/pro" component={Pro} />
                 <Route path="/profile" component={Profile} />
+                <Route exact path="/help" render={()=><Redirect to="/help/1"/>} />
+                <Route path="/help/:page" component={Help} />
+                <Route exact path="/forum" render={()=><Redirect to="/forum/1"/>} />
+                <Route path="/forum/:page" component={Forum} />
               </Switch>
             </Root>
           </Switch>
