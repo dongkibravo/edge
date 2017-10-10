@@ -2,9 +2,7 @@ import React from 'react';
 import {Grid, Row, Col, Accordion, Panel} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import '../styles/css/support.help.css';
-// import { Accordion, AccordionItem } from 'react-sanfona';
 import { getFaq } from '../actions/SupportAction';
-
 
 class Help extends React.Component{
 
@@ -70,7 +68,7 @@ class Help extends React.Component{
                   {<div><span>Q </span><span>{faq.question}</span></div>}
                    eventKey={i} key={"qna_"+i}>
                    <span>A </span><span>{faq.answer}</span>
-                  </Panel>
+                </Panel>
               ))}
             </Accordion>
           </Col>

@@ -1,9 +1,22 @@
-div.container.setting-page>div.forum-container{
+div.container.forum-page>div.forum-container{
   padding: 15px 0;
 }
 
 table.forum-table{
   border: 0;
+}
+div.container.forum-page>div.title>div>span{
+  display: block;
+  color: #333333;
+  padding: 10px 0;
+}
+div.container.forum-page>div.title>div>span.main{
+  font-size: 21px;
+  font-weight: 500;
+}
+div.container.forum-page>div.title>div>span.sub{
+  font-size: 14px;
+  font-weight: 400;
 }
 
 table.forum-table>thead>tr{
@@ -83,26 +96,26 @@ div.forum-container>div>a.btn{
   background-color: #6be1cc;
 }
 
-div.setting-page>div.paging.row>div,
-div.setting-page>div.search.row>div{
+div.forum-page>div.paging.row>div,
+div.forum-page>div.search.row>div{
   display:inline-block;
 }
 
-div.setting-page>div.search.row{
+div.forum-page>div.search.row{
   padding: 15px 0 90px 0;
 }
 
-div.setting-page>div.search.row>div>div.input-group{
+div.forum-page>div.search.row>div>div.input-group{
   display: inline-block;
 }
-div.setting-page>div.search.row>div>div.input-group>input{
+div.forum-page>div.search.row>div>div.input-group>input{
   width: auto;
   border:none;
   background-color:#e6e6e6;
   transition: none;
   box-shadow: none;
 }
-div.setting-page>div.search.row>div>div.input-group>button{
+div.forum-page>div.search.row>div>div.input-group>button{
   padding: 9px 12px;
   width:auto;
   background-color: #6be1cc;
@@ -110,24 +123,24 @@ div.setting-page>div.search.row>div>div.input-group>button{
   border: none;
 }
 
-div.setting-page>div.paging.row>div>ul.pagination>li>a{
+div.forum-page>div.paging.row>div>ul.pagination>li>a{
   border: none;
   color: #000;
 }
 
-div.setting-page>div.paging.row>div>ul.pagination>.active>a{
+div.forum-page>div.paging.row>div>ul.pagination>.active>a{
   background-color: #fff;
   color: #6be1cc;
 }
-div.setting-page>div.forum-container>div>div.dropdown{
+div.forum-page>div.forum-container>div>div.dropdown{
   margin-bottom: 25px;
 
 }
-div.setting-page>div.forum-container>div>div.dropdown>button{
+div.forum-page>div.forum-container>div>div.dropdown>button{
   background-color: #fff;
   background-image: none;
 }
-div.setting-page>div.forum-container>div>div.dropdown>button>span{
+div.forum-page>div.forum-container>div>div.dropdown>button>span{
   margin-left: 15px;
 }
 
@@ -135,11 +148,11 @@ div.setting-page>div.forum-container>div>div.dropdown>button>span{
            New Post Page css
 */
 
-div.setting-page>div.post-container>div>form>*{
+div.forum-page>div.post-container>div>form>*{
   display: block;
   width: 100%;
 }
-div.setting-page>div.post-container>div>form>input{
+div.forum-page>div.post-container>div>form>input{
   background-color: #f2f2f2;
   font-size: 14px;
   padding:10px;
@@ -147,18 +160,18 @@ div.setting-page>div.post-container>div>form>input{
   margin-bottom: 50px;
   padding: 15px 25px;
 }
-div.setting-page>div.post-container>div>form>textarea{
+div.forum-page>div.post-container>div>form>textarea{
   border: 1px solid black;
   overflow: auto;
   padding: 25px;
 }
 
-div.setting-page>div.post-buttons{
+div.forum-page>div.post-buttons{
   padding-top: 20px;
   padding-bottom: 50px;
 }
 
-div.setting-page>div.post-buttons>div>*{
+div.forum-page>div.post-buttons>div>*{
   width: auto;
   display: inline-block;
   font-size: 14px;
@@ -167,13 +180,13 @@ div.setting-page>div.post-buttons>div>*{
   min-width: 100px;
 }
 
-div.setting-page>div.post-buttons>div>a#cancel-btn{
+div.forum-page>div.post-buttons>div>a#cancel-btn{
   background-color: rgb(240, 240, 240);
   color: rgb(122, 122, 122);
   padding: 9px 12px;
 
 }
-div.setting-page>div.post-buttons>div>button#post-btn{
+div.forum-page>div.post-buttons>div>button#post-btn{
   background-color: #6be1cc;
   color: #fff;
 }

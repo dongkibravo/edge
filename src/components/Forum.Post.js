@@ -18,7 +18,7 @@ const Description =()=>{
 };
 
 
-class ForumThread extends React.Component{
+class ForumPost extends React.Component{
 
   constructor(){
     super();
@@ -68,4 +68,4 @@ class ForumThread extends React.Component{
   }
 }
 
-export default ForumThread;
+export default ForumPost;

@@ -50,7 +50,7 @@ const ForumTable = (props) =>{
           </thead>
           <tbody>
             {forumList.map((forum, i)=>(
-              <tr key={"forum_"+i} onClick={onClickHandler}>
+              <tr key={"forum_"+i} onClick={(evt)=>onClickHandler(forum.id, evt)} id={1}>
                 <td className="hidden-xs">{forum.id}</td>
                 <td className="title">
                   {forum.title}
@@ -75,7 +75,7 @@ const ForumTable = (props) =>{
 };
 
 const Paginator=(props)=>{
-  let {currentPage, handleSelect} = props;
+  let {currentPage, handleSelect, pageLength} = props;
   return(
     <Row className="paging text-center">
       <Col xs={12}>
@@ -86,7 +86,7 @@ const Paginator=(props)=>{
           last
           ellipsis
           boundaryLinks
-          items={10}
+          items={pageLength}
           maxButtons={5}
           activePage={parseInt(currentPage,10)}
           onSelect={handleSelect} />
@@ -100,14 +100,14 @@ const Paginator=(props)=>{
 // ***********************************
 
 const ForumContainer=(props)=>{
-  let {forumList, currentPage, handleSelect, onClickHandler} = props;
-
+  let {forumList, currentPage, forumLength} = props.state;
+  let {handleSelect, onClickHandler} = props.handlers;
   return(
-    <Grid className="setting-page">
+    <Grid className="forum-page">
       <Description />
       <ForumTable forumList={forumList} currentPage={currentPage}
         onClickHandler={onClickHandler} />
-      <Paginator currentPage={currentPage}
+      <Paginator currentPage={currentPage} pageLength={forumLength}
         handleSelect={handleSelect} />
       <Row className="search text-center">
         <Col xs={12}>

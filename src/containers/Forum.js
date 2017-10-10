@@ -3,7 +3,8 @@ import {getForum} from '../actions/SupportAction';
 import {connect} from 'react-redux';
 import '../styles/css/support.forum.css';
 import ForumContainer from '../components/Support.Forum';
-import ForumThread from '../components/Forum.Post';
+import ForumPost from '../components/Forum.Post';
+import ForumThread from './Forum.Thread';
 import {Route, Switch} from 'react-router-dom';
 
 class Forum extends React.Component{
@@ -14,6 +15,8 @@ class Forum extends React.Component{
       forumList: [],
       currentPage: 1
     };
+    this.handleSelect = this.handleSelect.bind(this);
+    this.onClickHandler = this.onClickHandler.bind(this);
   }
 
   componentWillMount(){
@@ -47,21 +50,23 @@ class Forum extends React.Component{
     });
   }
 
-  onClickHandler(eventKey){
-    alert("clicked");
+  onClickHandler(id, evt){
+    console.log(id);
+    this.props.history.push('/forum/'+id);
   }
 
   render(){
-    let {forumList, currentPage} = this.state;
+    let handlers = {
+      handleSelect : this.handleSelect,
+      onClickHandler : this.onClickHandler
+    };
 
     return(
       <Switch>
-        <Route exact path="/forum"
-          render={()=>(<ForumContainer forumList={forumList} currentPage={currentPage}
-                      handleSelect={this.handleSelect.bind(this)}
-                      onClickHandler={this.onClickHandler.bind(this)}
-                      />)}/>
-        <Route exact path="/forum/new-post" component={ForumThread} />
+        <Route exact path="/forum" render={()=>
+            <ForumContainer state={this.state} handlers={handlers}/>}/>
+        <Route exact path="/forum/:id" component={ForumThread} />
+        <Route exact path="/forum/new-post" component={ForumPost} />
       </Switch>
     );
   }
