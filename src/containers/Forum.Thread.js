@@ -1,5 +1,5 @@
 import React from 'react';
-import {Row, Col, Grid} from 'react-bootstrap';
+import {Row, Col, Grid, Collapse, DropdownButton, MenuItem} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import commentAdmin from '../static/comment_admin.svg';
 import commetEdit from '../static/comment_edit.svg';
@@ -9,8 +9,23 @@ class ForumThread extends React.Component{
   constructor(){
     super();
     this.state={
-
+      commentBox: false,
+      comment: ''
     };
+    this.goBackHandler = this.goBackHandler.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+
+  goBackHandler(){
+    this.props.history.goBack();
+  }
+
+  handleChange(evt){
+    this.setState({
+      comment: evt.target.value
+    });
+    console.log(this.state.comment);
   }
 
   render(){
@@ -18,7 +33,7 @@ class ForumThread extends React.Component{
       <Grid className="forum-page">
         <Row className="thread-content">
           <Col xs={12} sm={10} smOffset={1}>
-            <Link to="#" className="btn"><span> All Threads</span></Link>
+            <button id="goBack" onClick={this.goBackHandler}><span> All Threads</span></button>
             <Row className="title-row">
               <Col xs={12}>
                 <div className="row-1">
@@ -45,7 +60,21 @@ class ForumThread extends React.Component{
               </Col>
             </Row>
 
-            <button>Reply</button>
+            <button onClick={()=> this.setState({ commentBox: true })}>Reply</button>
+            <Collapse in={this.state.commentBox}>
+              <div className="test">
+                <span>Comment</span>
+                <textarea type="textarea" rows={4}
+                  value={this.state.comment} onChange={this.handleChange}/>
+                <div className="comment-btns">
+                  <button className="comment-submit">Submit</button>
+                  <button className="comment-cancel"
+                    onClick={()=>this.setState({commentBox: false, comment:''})}>
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </Collapse>
           </Col>
         </Row>
 
@@ -67,11 +96,16 @@ class ForumThread extends React.Component{
                       <span className="date">2017-09-92 commented time</span>
                   </Col>
                 </Row>
-                <Row className="reply-text">
+                <Row className="reply-text comment-owner">
                   <Col xs={12}>
                     <span>comment text text text</span>
                     {/* if the comment is created by the current user */}
-                    <button><i className="glyphicon glyphicon-pencil"/></button>
+
+                    <DropdownButton title={<i className="glyphicon glyphicon-pencil" />} noCaret>
+                      <MenuItem eventKey="1">Edit</MenuItem>
+                      <MenuItem eventKey="2">Delete</MenuItem>
+                    </DropdownButton>
+
                   </Col>
                 </Row>
               </Col>

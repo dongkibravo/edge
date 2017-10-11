@@ -44,7 +44,7 @@ class ForumPost extends React.Component{
 
   render(){
     return(
-      <Grid className="setting-page">
+      <Grid className="forum-page">
         <Description />
         <Row className="post-container">
           <Col xs={12} sm={8} smOffset={2}>

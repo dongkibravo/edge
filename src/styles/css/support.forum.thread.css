@@ -1,19 +1,20 @@
 div.forum-page>div.thread-content{
   padding: 30px 0;
 }
-div.forum-page>div.thread-content>div>a{
+div.forum-page>div.thread-content>div>button#goBack{
   margin: 20px 0 45px 0;
   padding: 8px 10px;
   border: 1px solid #2a2a2a;
   border-radius: 8px;
+  background-color: #fff;
 }
-div.forum-page>div.thread-content>div>a{
+div.forum-page>div.thread-content>div>button#goBack{
   font-size: 18px;
   font-weight: 500;
   color: #2a2a2a;
 }
 
-div.forum-page>div.thread-content>div>a>span::before{
+div.forum-page>div.thread-content>div>button#goBack>span::before{
   font-family: 'Glyphicons Halflings';
   content: "\e091";
   float: left;
@@ -107,11 +108,74 @@ div.reply-content>div>div.reply-text>div>button{
 
 
 
-div.reply-content>div>div.reply-title.admin>div>span.author{
+div.reply-content>div>div.reply-title.admin>div>span{
   font-weight: 700;
   color: #6be1cc;
 }
 div.reply-content>div>div.reply-title.admin>div>span>img{
   width:30;
   margin-right: 10px;
+}
+
+div.thread-content>div>div.test{
+  margin-top: 35px;
+}
+div.thread-content>div>div.test>span{
+  display: block;
+}
+div.thread-content>div>div.test>textarea{
+  display: block;
+  border: 1px solid #f2f2f2;
+  width: 100%;
+}
+div.thread-content>div>div.test>div.comment-btns{
+  display: block;
+  margin-top: 15px;
+}
+div.thread-content>div>div.test>div.comment-btns>button{
+  display: inline-block;
+  width: auto;
+  min-width: 85px;
+  color: #fff;
+}
+div.thread-content>div>div.test>div.comment-btns>button.comment-cancel{
+  background-color: #f2f2f2;
+  color: #000;
+  margin-left: 10px;
+}
+
+
+div.reply-content>div>div.reply-text.comment-owner>div>div.dropdown>button{
+  width: auto;
+  padding: 0;
+  background-color: #fff;
+  color: #dbece9;
+  margin-left: 20px;
+  background-image: none;
+  border: none;
+  -webkit-box-shadow: none;
+}
+div.reply-text.comment-owner>div>div.dropdown{
+  width: 127px;
+}
+div.reply-text.comment-owner>div>div.dropdown>ul{
+  border-radius: 0;
+  border:none;
+  background-color: #dbece9;
+  top: 8px;
+  right: 0;
+  left: auto;
+  -webkit-box-shadow: none;
+  -webkit-padding-start: 0;
+  min-width:60px;
+  padding: 0;
+}
+div.reply-text.comment-owner>div>div.dropdown>ul::before{
+  content: "";
+  border-width: 10px 0 0 10px;
+  border-style: solid;
+  border-color: #dbece9 transparent;
+  position:absolute;
+  left: -8px;
+  display:inline-block;
 }

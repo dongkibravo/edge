@@ -65,8 +65,8 @@ class Forum extends React.Component{
       <Switch>
         <Route exact path="/forum" render={()=>
             <ForumContainer state={this.state} handlers={handlers}/>}/>
-        <Route exact path="/forum/:id" component={ForumThread} />
         <Route exact path="/forum/new-post" component={ForumPost} />
+        <Route exact path="/forum/:id" component={ForumThread} />
       </Switch>
     );
   }
