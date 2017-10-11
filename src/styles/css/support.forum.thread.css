@@ -123,22 +123,27 @@ div.thread-content>div>div.test{
 div.thread-content>div>div.test>span{
   display: block;
 }
-div.thread-content>div>div.test>textarea{
+
+div.thread-content>div>div.test>textarea,
+div.reply-text.comment-owner>div>div.comment-edit>textarea{
   display: block;
   border: 1px solid #f2f2f2;
   width: 100%;
 }
-div.thread-content>div>div.test>div.comment-btns{
+div.thread-content>div>div.test>div.comment-btns,
+div.reply-text.comment-owner>div>div.comment-edit>div.comment-btns{
   display: block;
   margin-top: 15px;
 }
-div.thread-content>div>div.test>div.comment-btns>button{
+div.thread-content>div>div.test>div.comment-btns>button,
+div.reply-text.comment-owner>div>div.comment-edit>div.comment-btns>button{
   display: inline-block;
   width: auto;
   min-width: 85px;
   color: #fff;
 }
-div.thread-content>div>div.test>div.comment-btns>button.comment-cancel{
+div.thread-content>div>div.test>div.comment-btns>button.comment-cancel,
+div.reply-text.comment-owner>div>div.comment-edit>div.comment-btns>button.comment-cancel{
   background-color: #f2f2f2;
   color: #000;
   margin-left: 10px;
@@ -156,19 +161,25 @@ div.reply-content>div>div.reply-text.comment-owner>div>div.dropdown>button{
   -webkit-box-shadow: none;
 }
 div.reply-text.comment-owner>div>div.dropdown{
-  width: 127px;
+  width: 105px;
 }
 div.reply-text.comment-owner>div>div.dropdown>ul{
   border-radius: 0;
   border:none;
   background-color: #dbece9;
-  top: 8px;
+  top: 6px;
   right: 0;
   left: auto;
   -webkit-box-shadow: none;
   -webkit-padding-start: 0;
   min-width:60px;
   padding: 0;
+}
+div.reply-text.comment-owner>div>div.dropdown>ul>li>a{
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 300;
+
 }
 div.reply-text.comment-owner>div>div.dropdown>ul::before{
   content: "";
@@ -178,4 +189,11 @@ div.reply-text.comment-owner>div>div.dropdown>ul::before{
   position:absolute;
   left: -8px;
   display:inline-block;
+}
+
+div.reply-text>div>div.comment-content{
+  display: inline-block;
+}
+div.reply-text>div>div.comment-edit{
+  display:block;
 }

@@ -95,6 +95,9 @@ const mapDispatchToProps = dispatch =>{
     getTutorQuestion: ()=>{
       dispatch(getTutorQuestion());
     },
+    postTutorQuestion: ()=>{
+      dispatch(postTutorQuestion());
+    }
   };
 };
 

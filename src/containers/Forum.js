@@ -1,5 +1,5 @@
 import React from 'react';
-import {getForum} from '../actions/SupportAction';
+import {getForum, getThreadDetail} from '../actions/SupportAction';
 import {connect} from 'react-redux';
 import '../styles/css/support.forum.css';
 import ForumContainer from '../components/Support.Forum';
@@ -31,8 +31,6 @@ class Forum extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    console.log("will receive props");
-
     if(this.props.forumList !== nextProps.forumList){
       console.log("new faq arrived and calling setstate");
       this.setState({
@@ -51,8 +49,11 @@ class Forum extends React.Component{
   }
 
   onClickHandler(id, evt){
-    console.log(id);
-    this.props.history.push('/forum/'+id);
+    let {getThreadDetail, history, thread} = this.props;
+    if(!thread || thread.id !== id){
+      getThreadDetail(id);
+    }
+    history.push('/forum/'+id);
   }
 
   render(){
@@ -77,6 +78,9 @@ const mapDispatchToProps = dispatch =>{
   return{
     getForum: (page) =>{
       dispatch(getForum(page));
+    },
+    getThreadDetail: (threadId) =>{
+      dispatch(getThreadDetail(threadId));
     }
   };
 };
@@ -84,7 +88,8 @@ const mapDispatchToProps = dispatch =>{
 const mapStateToProps = (state, props) =>{
   return{
     forumList : state.support.forum,
-    forumLength : state.support.forumLength
+    forumLength : state.support.forumLength,
+    thread : state.support.thread
   };
 };
 

@@ -2,6 +2,7 @@ const initialState ={
   jwtToken: 'truetureture',
   error: null,
   redirectUrl: null,
+  userId : 1
 };
 
 function authReducer(state=initialState, action){

@@ -8,17 +8,18 @@ function QuizSelector(quiz){
   let set_type = null;
   if(quiz.test_type === 'Quiz'){
     if(quiz.data_type === "Pattern"){
-      set_type = <Pattern data ={quiz.log} />
+      set_type = <Pattern data ={quiz.log} />;
     }else if(quiz.data_type === "Dialogue"){
-      set_type = <Dialogue data ={quiz.log} />
+      set_type = <Dialogue data ={quiz.log} />;
     }else if(quiz.data_type === "Vocabulary"){
-      set_type = <Vocabulary data={quiz.log} />
+      set_type = <Vocabulary data={quiz.log} />;
     }
   }
   return set_type;
 }
 
-const QuizTable = ({week, day, data}) =>{
+const QuizTable = (props) =>{
+  let {week, day, data} = props;
   return(
     <Row>
       <Col xs={12} md={10} mdOffset={1}>

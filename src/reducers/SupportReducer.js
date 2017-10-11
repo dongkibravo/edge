@@ -2,7 +2,8 @@ const initialState ={
     faq: [],
     faqLength: null,
     forum: [],    // get three pages first
-    forumLength: null
+    forumLength: null,
+    thread: null
 };
 
 function supportReducer(state=initialState, action){
@@ -22,6 +23,11 @@ function supportReducer(state=initialState, action){
       });
     }
 
+    case "GET_THREAD_DETAIL_FULFILLED":{
+      return Object.assign({}, state, {
+        thread: action.payload
+      });
+    }
 
     default:
       return state;

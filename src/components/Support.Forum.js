@@ -32,7 +32,7 @@ const Category = (props) =>{
 };
 
 const ForumTable = (props) =>{
-  let {forumList, currentPage, onClickHandler} = props;
+  let {forumList, onClickHandler} = props;
 
   return(
     <Row className="forum-container">
@@ -105,8 +105,7 @@ const ForumContainer=(props)=>{
   return(
     <Grid className="forum-page">
       <Description />
-      <ForumTable forumList={forumList} currentPage={currentPage}
-        onClickHandler={onClickHandler} />
+      <ForumTable forumList={forumList} onClickHandler={onClickHandler} />
       <Paginator currentPage={currentPage} pageLength={forumLength}
         handleSelect={handleSelect} />
       <Row className="search text-center">

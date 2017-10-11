@@ -1,21 +1,98 @@
 import React from 'react';
-import {Row, Col, Grid, Collapse, DropdownButton, MenuItem} from 'react-bootstrap';
-import {Link} from 'react-router-dom';
-import commentAdmin from '../static/comment_admin.svg';
-import commetEdit from '../static/comment_edit.svg';
+import {Grid} from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {getThreadDetail} from '../actions/SupportAction';
+import {Thread, CommentSection} from '../components/Forum.Thread.Components';
 import '../styles/css/support.forum.thread.css';
 
 class ForumThread extends React.Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
+    console.log(this.props);
     this.state={
       commentBox: false,
-      comment: ''
+      comment: '',
+      editArray: null,              // for owner comment section
+      thread: this.props.thread
     };
     this.goBackHandler = this.goBackHandler.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.onReplyBtnClick = this.onReplyBtnClick.bind(this);
+    this.onReplyCancelClick = this.onReplyCancelClick.bind(this);
+    this.onCommentDeleteClick = this.onCommentDeleteClick.bind(this);
+    this.onCommentEditClick = this.onCommentEditClick.bind(this);
+    this.onCommentEditChange = this.onCommentEditChange.bind(this);
+    this.onEditCancel = this.onEditCancel.bind(this);
   }
 
+  componentWillMount(){
+    let {id} = this.props.match.params;
+    let {thread} = this.state;
+
+    if(!thread){
+      this.props.getThreadDetail(id);
+    }else{
+      let {userId} = this.props;
+      let array = thread.comments.reduce(
+        function(filtered,comment){
+          if(comment.author_id===userId){
+            if(Object.keys(filtered).length===0){
+              filtered = {status:{}, comment:{}};
+              filtered.status[comment.id] = true;
+              filtered.comment[comment.id] = '';
+            }else{
+              filtered.status[comment.id] = true;
+              filtered.comment[comment.id] = '';
+            }
+          }
+        return filtered;
+      }, {});
+
+      this.setState({
+        editArray : array
+      });
+    }
+  }
+
+  componentWillReceiveProps(nextProps){
+    if(this.state.thread !==nextProps.thread){
+      // calculating how many comments are owned by the current logged in user
+
+      let {userId} = this.props;
+      let array = nextProps.thread.comments.reduce(
+        function(filtered,comment){
+          if(comment.author_id===userId){
+            if(Object.keys(filtered).length===0){
+              filtered = {status:{}, comment:{}};
+              filtered.status[comment.id] = true;
+              filtered.comment[comment.id] = '';
+            }else{
+              filtered.status[comment.id] = true;
+              filtered.comment[comment.id] = '';
+            }
+          }
+        return filtered;
+      }, {});
+
+      this.setState({
+        thread : nextProps.thread,
+        editArray : array
+      });
+    }
+  }
+
+  onReplyBtnClick(){
+    this.setState({
+      commentBox: true
+    });
+  }
+
+  onReplyCancelClick(){
+    this.setState({
+      commentBox: false,
+      comment: ''
+    });
+  }
 
   goBackHandler(){
     this.props.history.goBack();
@@ -25,117 +102,95 @@ class ForumThread extends React.Component{
     this.setState({
       comment: evt.target.value
     });
-    console.log(this.state.comment);
   }
 
+  onCommentDeleteClick(commentId){
+    if (window.confirm("Press a button!"+ commentId) === true) {
+      alert("confirm");
+    } else {
+      alert("cancel");
+    }
+  }
+
+  onCommentEditClick(id, comment, event){
+    let commentNode = event.currentTarget.parentNode.parentNode.parentNode;
+    commentNode.style='visibility:hidden';
+
+    let {editArray}= this.state;
+    editArray.status[id] = false;
+    editArray.comment[id] = comment;
+
+    this.setState({
+      edittingText: comment,
+      editArray
+    });
+  }
+
+   onCommentEditChange(id, event){
+     let {editArray} = this.state;
+     editArray.comment[id] = event.target.value;
+     this.setState({
+       editArray
+     });
+   }
+
+   onEditCancel(id, event){
+     let commentNode = event.currentTarget.parentNode.parentNode.nextSibling;
+     commentNode.style="visibility:visible";
+     let {editArray} = this.state;
+     editArray.status[id] = true;
+     editArray.comment[id] = '';
+     this.setState({
+       editArray
+     });
+   }
+
   render(){
+    let threadHandlers = {
+      goBackHandler : this.goBackHandler,
+      onReplyBtnClick : this.onReplyBtnClick,
+      onReplyCancelClick : this.onReplyCancelClick,
+      handleChange : this.handleChange,
+    };
+
+    let commentHandlers = {
+      onEditClick : this.onCommentEditClick,
+      onDeleteClick : this.onCommentDeleteClick,
+      onCommentEditChange: this.onCommentEditChange,
+      onEditCancel : this.onEditCancel
+    };
+    console.log(this.state);
     return(
       <Grid className="forum-page">
-        <Row className="thread-content">
-          <Col xs={12} sm={10} smOffset={1}>
-            <button id="goBack" onClick={this.goBackHandler}><span> All Threads</span></button>
-            <Row className="title-row">
-              <Col xs={12}>
-                <div className="row-1">
-                  <span className="title">타이틀</span>
-                  <span className="category">
-                    Category:
-                    {/* loop category array here*/}
-                    Software
-                  </span>
-                </div>
-                <div className="row-2">
-                  <span>user id</span>
-                </div>
-              </Col>
-            </Row>
-
-            <Row className="text-row">
-              <Col xs={12}>
-                <span>
-                  the context of this thread comes in here\n
-                  asdfasdvzxcvzsd asdfzxcv \n
-                  sadfasdv
-                </span>
-              </Col>
-            </Row>
-
-            <button onClick={()=> this.setState({ commentBox: true })}>Reply</button>
-            <Collapse in={this.state.commentBox}>
-              <div className="test">
-                <span>Comment</span>
-                <textarea type="textarea" rows={4}
-                  value={this.state.comment} onChange={this.handleChange}/>
-                <div className="comment-btns">
-                  <button className="comment-submit">Submit</button>
-                  <button className="comment-cancel"
-                    onClick={()=>this.setState({commentBox: false, comment:''})}>
-                    Cancel
-                  </button>
-                </div>
-              </div>
-            </Collapse>
-          </Col>
-        </Row>
-
-        <Row className="reply">
-          <Col xs={12} sm={10} smOffset={1}>
-            <Row className="title-row">
-              <Col xs={12}>
-                <span>Replies</span>
-              </Col>
-            </Row>
-            {/* loop reply array in here */}
-
-            <Row className="reply-content">
-              <Col xs={12}>
-                {/* regular user's reply version */}
-                <Row className="reply-title">
-                  <Col xs={12}>
-                      <span className="author">comment author</span>
-                      <span className="date">2017-09-92 commented time</span>
-                  </Col>
-                </Row>
-                <Row className="reply-text comment-owner">
-                  <Col xs={12}>
-                    <span>comment text text text</span>
-                    {/* if the comment is created by the current user */}
-
-                    <DropdownButton title={<i className="glyphicon glyphicon-pencil" />} noCaret>
-                      <MenuItem eventKey="1">Edit</MenuItem>
-                      <MenuItem eventKey="2">Delete</MenuItem>
-                    </DropdownButton>
-
-                  </Col>
-                </Row>
-              </Col>
-            </Row>  {/* border bottom dotted */}
-
-            <Row className="reply-content">
-              <Col xs={12}>
-                {/* admin reply version */}
-                <Row className="reply-title admin">
-                  <Col xs={12}>
-                      <span className="author">
-                        <img src={commentAdmin} alt="comment-admin"/>
-                        Musio support
-                      </span>
-                      <span className="date">2017-09-92 commented time</span>
-                  </Col>
-                </Row>
-                <Row className="reply-text">
-                  <Col xs={12}>
-                    <span>comment text text text</span>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-
-          </Col>
-        </Row>
+        {this.state.thread?
+          <Thread handlers={threadHandlers} state={this.state} />:
+          null
+        }
+        {this.state.thread?
+        <CommentSection handlers={commentHandlers} state={this.state}
+          userId={this.props.userId}/>:
+        null
+        }
       </Grid>
     );
   }
 }
 
-export default ForumThread;
+const mapDispatchToProps = dispatch =>{
+  return{
+    getThreadDetail: (threadId) =>{
+      dispatch(getThreadDetail(threadId));
+    }
+  };
+};
+
+const mapStateToProps = (state, props) =>{
+  return{
+    thread : state.support.thread,
+    userId : state.auth.userId
+  };
+};
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ForumThread);

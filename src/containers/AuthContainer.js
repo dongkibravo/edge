@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { setRedirectUrl } from '../actions/AuthAction';
 import ContentCategory from './MainContainer';
@@ -14,8 +14,6 @@ class RootRouterWrapper extends React.Component{
 
   componentDidMount(){
     const { currentUrl, jwt, titles } = this.props;
-    console.log("component did mount in wrapper");
-    console.log(currentUrl);
 
     if(!jwt){
       console.log("not logged in");
@@ -28,8 +26,6 @@ class RootRouterWrapper extends React.Component{
 
     }
   }
-  // {/* <Route exact path="/forum" render={()=><Redirect to="/forum/1"/>} />
-  // <Route path="/forum/:page" component={Forum} />*/}
 
   render(){
     const { jwt } = this.props;
