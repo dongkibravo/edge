@@ -1,0 +1,30 @@
+.content_container{
+  height:100%;
+}
+
+.hawaii, .olympic {
+  width: 100%;
+  height: 50%;
+  margin: 0;
+}
+
+.content{
+  padding: 9% 0;
+  width: 100%;
+  text-align: center;
+}
+
+.content span{
+  color: #fff;
+  font-weight: 300;
+  font-size: 48px;
+}
+.content button{
+  border-radius: 0.7em;
+  width: 177px;
+  margin-top: 30px;
+  background-color: #6be1cc;
+  background-image: none;
+  color: #fff;
+  font-weight:300;
+}

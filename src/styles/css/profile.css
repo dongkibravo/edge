@@ -1,0 +1,46 @@
+.title_row{
+  margin: 6% 0;
+  font-size: 36px;
+  font-weight: 400;
+  color: #6be1cc;
+}
+
+.text_row>div{
+  padding: 40px 0;
+  background-color: #f7f7f7;
+  border-top: 1px solid #222222;
+}
+
+.text_row span, .text_row>div>div{
+  display: block;
+}
+
+.text_row span{
+  margin: 20px 0;
+  color: #333333;
+}
+
+.profile_line1{
+  font-size: 24px;
+  font-weight: 500;
+}
+.profile_line1>a{
+  color: #6be1cc;
+}
+.profile_line2{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.text_row .btn{
+  display: inline-block;
+}
+
+.profile_link{
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  background: #6be1cc;
+  border-radius: 0.7em;
+  border: none;
+}

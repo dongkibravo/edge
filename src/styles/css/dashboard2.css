@@ -1,0 +1,150 @@
+.table_title .title_text, .table_title .musio_activation{
+  display: inline-block;
+}
+
+.table_title .musio_activation{
+  float: right;
+}
+
+.info_table{
+  margin-top: 4%;
+  border-radius: 0.7em;
+  overflow: hidden;
+  text-align: left;
+}
+
+.info_table.dashboard>div.table_title{
+  background-color: #65a0ee;
+}
+
+.info_table.ai>.table_title{
+  background-color: #675df7;
+}
+
+.info_table .table_title .title_padding{
+  padding: 20px 0;
+}
+
+.info_table .table_title .title_text>div{
+  padding: 5px 0;
+  color: #fff;
+}
+
+.info_table .table_title .title_text>.week{
+  font-weight: 400;
+  font-size: 18px;
+}
+.info_table .table_title .title_text>.day{
+  font-weight: 700;
+  font-size: 26px;
+}
+.info_table .table_title .musio_activation{
+  position: relative;
+  top: 20px;
+}
+.detail_table_background{
+  background-color: #f6f7fb;
+  padding-bottom: 60px;
+}
+.detail_table>.detail_title{
+  margin-top: 30px;
+}
+
+.detail_table>.detail_content>.row{
+  padding: 30px 0;
+}
+.detail_table>.detail_title{
+  font-weight: 700;
+  font-size: 16px;
+  color: #808080;
+}
+.day_detail{
+  background-color: #fff;
+  padding-bottom: 30px;
+}
+.detail_table>.detail_content .day_detail_title{
+  text-align: center;
+  font-weight:700;
+  font-size: 14px;
+  color:#fff;
+}
+
+.day_detail>.day_detail_title>div{
+  padding: 11px 0;
+}
+
+.qna_separation{
+  padding: 25px 0;
+}
+.qna_separation>.day_detail_qna{
+  text-align: center;
+  overflow: hidden;
+}
+
+.qna_separation>.day_detail_qna>.user_part,
+.qna_separation>.day_detail_qna>.pattern{
+  background-color: #f2f2f2;
+  border-radius: 1em;
+  font-weight: 500;
+  font-size: 16px;
+  color: #333333;
+}
+.qna_separation>.day_detail_qna>.musio_part{
+  background-color: #e6e6e6;
+  border-radius: 1em;
+  font-weight: 400;
+  font-size: 16px;
+  color: #4d4d4d;
+}
+.day_detail_qna>div>div>span{
+  display: block;
+  margin: 10px 0;
+}
+.qna_separation>.day_detail_qna>.pattern>div>span{
+  font-size: 16px;
+  color: #333333;
+}
+.pattern_eng{
+  font-weight:500;
+}
+.pattern_jp{
+  font-weight:400;
+}
+
+.detail_content .day_detail.vocab.vocab_prac{
+  padding-bottom: 0;
+}
+.detail_content .vocab_prac table{
+  width: 100%;
+  text-align: center;
+  border: 1px solid #e6e6e6;
+  border-collapse: collapse;
+}
+.vocab_prac table>thead>tr>td{
+  text-align: center;
+  background: #51bdd7;
+  color: #fff;
+}
+
+.vocab_prac table>tbody>tr>td{
+  background: #fff;
+  border: 1px solid #e6e6e6;
+}
+
+.vertical_bar2{
+  width:0;
+  height:25px;
+  border-left: 1px dashed grey;
+}
+
+.info_table.dashboard .detail_table>.detail_content .day_detail_title{
+  background-color: #51bdd7;
+}
+
+.info_table.ai .detail_table>.detail_content .day_detail_title{
+  background-color: #75affc;
+}
+
+.info_table.ai .detail_content thead>tr>td{
+  background-color: #75affc !important;
+}

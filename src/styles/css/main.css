@@ -1,18 +1,13 @@
-.button {
-  background-color: aqua; }
-
-nav {
-  background-color: #5ebd6c; }
-  nav li {
-    background-color: #ff5edd; }
-
-body {
-  background-color: inherit; }
+html, body, div#root, div[data-reactroot]{
+  height: 100%;
+}
+.container{
+  padding: 0;
+}
 
 @media (min-width: 768px) {
   body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background-color: #f2f2f2; } }
+    font-family: 'Noto Sans JP', sans-serif; } }
 
 h1 {
   font-family: 'Montserrat', sans-serif; }
@@ -53,45 +48,8 @@ h1 {
   margin-top: 20px;
   color: #333333; }
 
-button {
-  width: 100%;
-  height: auto;
-  margin-top: 15px;
-  margin-bottom: 30px;
-  border: none;
-  background-color: #8CE2D0;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px 10px; }
-
-.btn_signup {
-  display: inline-block;
-  width: 140px;
-  height: auto;
-  margin-bottom: 30px;
-  border: none;
-  background-color: #8CE2D0;
-  font-weight: bold;
-  cursor: pointer;
-  color: black;
-  padding: 7px 0; }
-
-.btn_signup:hover {
-  text-decoration: none;
-  color: black; }
-
 img.logo_img {
-  width: 120px; }
-
-.top_nav {
-  background-color: #dedede;
-  height: 50px;
-  vertical-align: middle; }
-
-div.test {
-  background-color: bisque;
-  font-size: 22px;
-  color: aqua; }
+  width: 160px; }
 
 .container {
   width: 100%; }

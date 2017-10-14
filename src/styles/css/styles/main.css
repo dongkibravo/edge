@@ -11,8 +11,7 @@ body {
 
 @media (min-width: 768px) {
   body {
-    font-family: 'Noto Sans JP', sans-serif;
-    background-color: #f2f2f2; } }
+    font-family: 'Noto Sans JP', sans-serif; } }
 
 h1 {
   font-family: 'Montserrat', sans-serif; }

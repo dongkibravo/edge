@@ -1,0 +1,43 @@
+div.line{
+  width: 70px;
+  display: inline-block;
+  position: relative;
+  top: -90px;
+  border: 1px solid #e6e6e6;
+}
+
+div.line.complete, div.line.ongoing{
+  border: 1px solid #84b3f1;
+}
+.form-group{
+  display: inline-block;
+  position: relative;
+  top: -40px;
+}
+.form-group>img{
+  display: block;
+}
+
+.form-group>label{
+  top:20px;
+  width:100%;
+  position:relative;
+  text-align: center;
+  font-weight: 400;
+  font-size:14px;
+  color:#333;
+  display: block;
+}
+
+.mini_circle{
+ width:80px;
+ height:80px;
+}
+
+.mini_circle.ongoing{
+  border: 2px solid #84b3f1;
+}
+
+.day_part{
+  display:inline-block;
+}

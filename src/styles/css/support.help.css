@@ -1,0 +1,70 @@
+div.container.setting-page{
+  height: 100%;
+  background-color: #f6f7fb;
+}
+
+div.container.setting-page>div.title>div>span{
+  display: block;
+  color: #333333;
+  padding: 10px 0;
+}
+div.container.setting-page>div.title>div>span.main{
+  font-size: 21px;
+  font-weight: 500;
+}
+div.container.setting-page>div.title>div>span.sub{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+div.faq-container>div>div>div>a{
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding:15px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #666666;
+}
+
+div.faq-container>div>div.panel-heading{
+  background-color: #fff;
+  background-image: none;
+}
+div.faq-container>div>div.panel-heading>div>a>span{
+  padding: 0 12px;
+}
+/*
+https://codepen.io/ajaypatelaj/pen/KLAcm
+*/
+div.faq-container>div>div.panel-heading>div>a::after{
+  font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+  content: "\e113";    /* adjust as needed, taken from bootstrap.css */
+  float: right;
+}
+div.faq-container>div>div.panel-heading>div>a.collapsed::after{
+  font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+  content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+  float: right;
+}
+div.faq-container>div>*{
+  font-weight: 500;
+  font-size: 18px;
+  color: #666666;
+}
+div.faq-container>div>div.panel-collapse{
+  background-color: #f2f2f2;
+}
+div.faq-container>div>div.panel-collapse>div>span{
+  padding: 0 12px;
+}
+
+div.faq-container>div>div.panel-collapse>div.panel-body{
+  padding: 20px;
+}
+div.faq-container>div{
+  margin-top: 0 !important;
+  overflow: hidden;
+}

@@ -1,0 +1,93 @@
+
+.pro_links a.side{
+  padding: 0 3%;
+}
+.pro_links a.center{
+  padding: 0 5%;
+}
+
+@media (min-width:600px) {
+  .pro_links a.side{
+    padding: 0 6%;
+  }
+  .pro_links a.center{
+    padding: 0 10%;
+  }
+}
+
+div.title{
+  font-size: 36px;
+  font-weight: 500;
+  color: #ffffff;
+  padding:35px 0;
+}
+
+div.title.AI{
+  background-color: #675df7;
+}
+
+div.title.Tutor{
+  background-color: #e96379;
+}
+
+.description span{
+  display: block;
+  color: #333333;
+  padding:10px 0;
+}
+
+.description .main{
+  font-weight:500;
+  font-size: 21px;
+}
+.description .sub{
+  font-weight:400;
+  font-size: 14px;
+}
+
+.pro_links{
+  padding: 70px 0;
+}
+
+.description{
+  padding: 40px 0;
+}
+
+.week_table{
+  padding: 25px 0;
+}
+.note_table_row{
+  margin: 35px 0;
+}
+
+.note_table{
+  background-color: #f6f7fb;
+  border-radius: 1.4em;
+  padding: 50px 0 !important;
+  min-height: 380px;
+}
+
+.note_table .note_type{
+  padding: 35px 20px;
+}
+
+.note_table .note_type>div>span.title_1{
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.note_table .note_type>div>span.title_2{
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.note_table tbody>tr>td.user_answer{
+  color: red;
+}
+
+tbody>tr>td.index, tbody>tr>td.score{
+  width:5%;
+}
+tbody>tr>td.question, tbody>tr>td.answer, tbody>tr>td.user_answer{
+  width:30%;
+}

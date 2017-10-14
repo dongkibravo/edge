@@ -1,0 +1,92 @@
+#header{
+  background-color: #f2f2f2;
+}
+#header>.container>.row{
+  margin:0;
+  padding-left: 50px;
+}
+
+#header .container .nav_brand .brand-img{
+  width: 160px;
+  margin: 16px 0;
+}
+
+
+#header .container .nav_menu{
+  margin: 11.5px 0;
+}
+
+#header .container .nav_right{
+  float: right;
+  margin: 8.5px 0;
+}
+
+button{
+  margin: 0;
+}
+
+#header .container .nav_menu .btn{
+  width: 110px;
+  border-radius: 0.7em;
+  background-color: #6be1cc;
+  background-image: none;
+  color: #fff;
+  font-weight: 300;
+  border: none;
+  margin: 0 22px;
+}
+#header .container .nav_right .dropdown_section .dropdown{
+  margin: 0 10px;
+}
+
+#header .container .nav_right .dropdown_section
+>.dropdown>.btn{
+  padding:0;
+}
+
+#header .container .nav_right .btn-upgrade{
+  display: inline-block;
+  width: auto;
+  border: 1px solid #6be1cc;
+  background-color: #f2f2f2;
+  border-radius: 0.4em;
+  color: #6be1cc;
+  font-weight: 300;
+  padding: 4px 8px;
+}
+#header .nav_right .dropdown_section{
+  margin-left: 15px;
+  display: inline-block;
+}
+#header .container .dropdown_contents,
+  #header .container .dropdown_setting{
+    display: inline-block;
+}
+
+.nav_right>.dropdown_section>.dropdown_contents>.dropdown>button{
+  padding: 0;
+  border: 0;
+  background-image: none;
+  -webkit-box-shadow:none;
+  background-color: #f2f2f2;
+}
+div.dropdown_contents>div>ul{
+  width: 140px;
+  min-width: 120px;
+}
+div.dropdown_contents>div>ul>li.disabled.selected{
+  background-color: #e8e8e8;
+}
+div.dropdown_contents>div>ul>li.disabled>a:hover{
+  cursor: default !important;
+}
+div.dropdown_contents>div>ul>li>a{
+  padding: 5px 10px;
+}
+div.dropdown_contents>div>ul>li>a>img{
+  width:30px;
+}
+div.dropdown_contents>div>ul>li>a>span{
+  margin-left: 10px;
+  font-size: 14px;
+}

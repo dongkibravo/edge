@@ -1,0 +1,68 @@
+[
+  {
+    'week_num': 1,
+    'week_title': 'Airport',
+    'status':[
+      {
+        'day': 1,
+        'status': 'finished'
+      },
+      {
+        'day': 2,
+        'status': 'ongoing'
+      },
+      {
+        'day': 3,
+        'status': 'locked'
+      },
+      {
+        'day': 4,
+        'status': 'pro_locked'
+      }
+    ]
+  },
+  {
+    'week_num': 2,
+    'week_title': 'Airplane',
+    'status':[
+      {
+        'day': 1,
+        'status': 'ongoing'
+      },
+      {
+        'day': 2,
+        'status': 'locked'
+      },
+      {
+        'day': 3,
+        'status': 'locked'
+      },
+      {
+        'day': 4,
+        'status': 'pro_locked'
+      }
+    ]
+  },
+  {
+    'week_num': 3,
+    'week_title': 'Airdodododododo',
+    'status':[
+      {
+        'day': 1,
+        'status': 'locked'
+      },
+      {
+        'day': 2,
+        'status': 'locked'
+      },
+      {
+        'day': 3,
+        'status': 'locked'
+      },
+      {
+        'day': 4,
+        'status': 'pro_locked'
+      }
+    ]
+  }
+]

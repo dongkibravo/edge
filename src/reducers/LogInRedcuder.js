@@ -12,7 +12,7 @@ function logInReducer(state=initialState, action){
     case "LOGIN_REQUIRED":{
       return Object.assign({}, state, {
         isLoggingIn: true,
-        currentUrl: action.payload
+        redirect: action.payload
       });
     }
 

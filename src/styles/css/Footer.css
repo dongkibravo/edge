@@ -1,0 +1,126 @@
+#footer {
+  background-color: #fff;
+  padding: 35px 0;
+  z-index: 999;
+}
+
+#footer hr {
+  display: block;
+  width: 90%;
+  color: #f2f2f2;
+}
+
+
+/* footer_link css */
+
+#footer .social_box {
+  list-style: none;
+  padding: 0;
+}
+
+#footer .social_box li {
+  display: inline-block;
+  margin: 0 6px;
+}
+
+#footer .social_box li img {
+  height: 40px;
+  -webkit-transition: all 0.13s ease-in-out;
+  -moz-transition: all 0.13s ease-in-out;
+  -o-transition: all 0.13s ease-in-out;
+  transition: all 0.13s ease-in-out;
+}
+
+#footer .social_box li img:hover {
+  -webkit-transform: scale(1.2, 1.2);
+  -moz-transform: scale(1.2, 1.2);
+  -o-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+}
+
+
+/* footer_subscribe css */
+
+#footer .input-group {
+  height: 50px;
+  margin: 10px auto;
+}
+
+#footer .input-group #email {
+  width: 180px;
+  height: 30px;
+  border: none;
+  border-radius: 0;
+  font-size: 11px;
+}
+
+#footer .input-group .input-group-btn {
+  display: inline-block;
+}
+
+#footer .input-group .input-group-btn button {
+  width: auto;
+  height: 30px;
+  border: none;
+  border-radius: 0;
+  font-size: 9px;
+  color: white;
+  background-color: #6be1cc;
+  margin-top:0;
+}
+
+
+/* footer_manual */
+
+#footer #footer_logo {
+  text-align: center;
+}
+
+#footer #footer_logo img {
+  height: 40px;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  #footer #footer_logo {
+    text-align: right;
+  }
+  #footer #footer_logo img {
+    text-align: right;
+  }
+}
+
+#footer #footer_copyright {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#footer #footer_copyright #copyright_text {
+  color: #b3b3b3;
+}
+
+#footer #footer_copyright #copyright_link {
+  color: #f2f2f2;
+  text-align: center;
+}
+
+@media (min-width: 992px) {
+  #footer #footer_copyright {
+    text-align: left;
+  }
+  #footer #footer_copyright #copyright_link {
+    text-align: left;
+  }
+}
+
+#footer #footer_copyright #copyright_link a {
+  color: #f2f2f2;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+#footer #footer_copyright #copyright_link a:hover {
+  color: #6be1cc;
+}

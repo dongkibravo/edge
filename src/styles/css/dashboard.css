@@ -1,0 +1,67 @@
+
+.container.main_content{
+  margin-top: 70px;
+}
+
+.container.main_content .weekly_content{
+  border: 1px solid #e6e6e6;
+  border-radius: 0.6em;
+  overflow: hidden;
+  padding:0;
+}
+
+.container.main_content .weekly_content .week_title{
+  text-align: center;
+  border-bottom: 1px solid grey;
+  background-color: #65a0ee;
+  padding: 20px 0;
+}
+
+.container.main_content .weekly_content .week_title>span{
+  color: #fff;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.row{
+  margin-left:0;
+  margin-right:0;
+}
+.row>div{
+  padding:0;
+}
+
+.container.main_content .weekly_content .progress_status{
+  margin: 35px 0;
+}
+.container.main_content .weekly_content .progress_status .status{
+  width: 180px;
+}
+.container.main_content .weekly_content .progress_status .mini_circle{
+ width:80px;
+ height:80px;
+}
+.container.main_content .weekly_content .progress_status
+.mini_circle.ongoing{
+  border: 2px solid #84b3f1;
+}
+
+.weekly_content .progress_status .connect.line{
+  border: 1px solid #e6e6e6;
+}
+
+.container.main_content .weekly_content .progress_status .line{
+  width: 70px;
+  display:inline-block;
+  position:relative;
+  top:-100px;
+}
+
+.weekly_content .progress_status .line.finished{
+  border: 1px solid #84b3f1;
+}
+.container.main_content .vertical_bar{
+  width: 0;
+  height:80px;
+  border-left: 1px dashed grey;
+}
