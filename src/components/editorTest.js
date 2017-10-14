@@ -2,7 +2,7 @@ import React from 'react';
 import {Row, Col, Grid} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { Editor } from 'react-draft-wysiwyg';
-// import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 
 const Description =()=>{
@@ -51,13 +51,7 @@ class ForumPost extends React.Component{
         <Description />
         <Row className="post-container">
           <Col xs={12} sm={8} smOffset={2}>
-            <form>
-              <input name="title" type="text" placeholder="제목"
-                onChange={this.handleChange} />
-              <textarea type="textarea" rows={16} name="content"
-                placeholder="내용" onChange={this.handleChange} />
-            </form>
-            {/*<Editor />*/}
+            <Editor />
           </Col>
         </Row>
         <Row className="post-buttons">

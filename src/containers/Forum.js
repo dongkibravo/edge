@@ -3,9 +3,10 @@ import {getForum, getThreadDetail} from '../actions/SupportAction';
 import {connect} from 'react-redux';
 import '../styles/css/support.forum.css';
 import ForumContainer from '../components/Support.Forum';
-import ForumPost from '../components/Forum.Post';
+// import ForumPost from '../components/Forum.Post';
 import ForumThread from './Forum.Thread';
 import {Route, Switch} from 'react-router-dom';
+import ForumPost from '../components/editorTest';
 
 class Forum extends React.Component{
   constructor(){
