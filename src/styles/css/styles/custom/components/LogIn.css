@@ -44,7 +44,7 @@ h1 {
   margin-top: 20px;
   color: #333333; }
 
-button {
+div.login_container>div.login_content button {
   width: 100%;
   height: auto;
   margin-top: 15px;

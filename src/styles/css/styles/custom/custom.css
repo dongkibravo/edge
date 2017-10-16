@@ -52,16 +52,16 @@ h1 {
   margin-top: 20px;
   color: #333333; }
 
-button {
-  width: 100%;
-  height: auto;
-  margin-top: 15px;
-  margin-bottom: 30px;
-  border: none;
-  background-color: #8CE2D0;
-  font-weight: bold;
-  cursor: pointer;
-  padding: 10px 10px; }
+/*button {*/
+  /*width: 100%;*/
+  /*height: auto;*/
+  /*margin-top: 15px;*/
+  /*margin-bottom: 30px;*/
+  /*border: none;*/
+  /*background-color: #8CE2D0;*/
+  /*font-weight: bold;*/
+  /*cursor: pointer;*/
+  /*padding: 10px 10px; }*/
 
 .btn_signup {
   display: inline-block;

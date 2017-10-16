@@ -1,8 +1,8 @@
 import React from 'react';
 import {Row, Col, Grid} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import { Editor } from 'react-draft-wysiwyg';
 import '../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import { Editor } from 'react-draft-wysiwyg';
 
 
 const Description =()=>{
@@ -51,7 +51,21 @@ class ForumPost extends React.Component{
         <Description />
         <Row className="post-container">
           <Col xs={12} sm={8} smOffset={2}>
-            <Editor />
+            <Editor
+              wrapperClassName="wrapper-class"
+              editorClassName="editor-class"
+              toolbarClassName="toolbar-class"
+              toolbar={{
+                options: ['inline','blockType','fontSize', 'list', 'textAlign','link','emoji','image'],
+                image: {
+                  urlEnabled: false,
+                  uploadEnabled: true,
+                  uploadCallback: true,
+                  inputAccept: 'image/gif,image/jpeg,image/jpg,image/png,image/svg',
+                }
+              }}
+
+            />
           </Col>
         </Row>
         <Row className="post-buttons">
